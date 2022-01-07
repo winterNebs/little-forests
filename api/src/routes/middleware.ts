@@ -29,7 +29,7 @@ export const adminMW = async (req: Request, res: Response, next: NextFunction) =
         }
     } catch (err) {
         return res.status(UNAUTHORIZED).json({
-            error: err.message,
+            error: err,
         });
     }
 };
