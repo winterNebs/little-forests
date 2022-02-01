@@ -1,9 +1,9 @@
 import morgan from 'morgan';
-import path from 'path';
 import helmet from 'helmet';
 import StatusCodes from 'http-status-codes';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import {connect} from "mongoose";
 
 import 'express-async-errors';
 
@@ -17,6 +17,10 @@ const { BAD_REQUEST } = StatusCodes;
 /************************************************************************************
  *                              Set basic express settings
  ***********************************************************************************/
+let mongoDB: string = process.env.DATABASE || "mongodb://127.0.0.1:27017/little";
+connect(mongoDB).catch (err => {
+   logger.warn("MongoDB connection error: " + err);
+}).then(()=>{logger.info("Connected to database")});
 
 app.use(cors());
 app.use(express.json());

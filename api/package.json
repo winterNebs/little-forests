@@ -60,6 +60,7 @@
     "build.ts"
   ],
   "dependencies": {
+    "@typegoose/typegoose": "^9.5.0",
     "bcrypt": "^5.0.1",
     "command-line-args": "^5.2.0",
     "cookie-parser": "^1.4.6",
@@ -73,6 +74,7 @@
     "jsonfile": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
+    "mongoose": "^6.1.10",
     "morgan": "^1.10.0",
     "randomstring": "^1.2.1"
   },

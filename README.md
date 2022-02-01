@@ -12,7 +12,6 @@ install node 16.13.1 (suggest using nvm)
 nvm install 16.13.1
 nvm alias default 16.13.1
 ```
-install mongodb (TODO)
 
 install packages for client and server
 ```
@@ -32,4 +31,9 @@ server
 ```
 cd api
 npm run start:dev
+```
+run local database (you need to install mongodb)
+create a folder and the run the command: 
+```
+mongod -dbpath <FOLDER NAME>
 ```
