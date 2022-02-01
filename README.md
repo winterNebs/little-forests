@@ -7,7 +7,7 @@ Client boilerplate generated from: https://create-react-app.dev/
 
 ## Getting started:
 
-    install node 16.13.1 (I suggest using [nvm](https://github.com/nvm-sh/nvm) for linux or [nvm-windows](https://github.com/coreybutler/nvm-windows) for windows)
+install node 16.13.1 (I suggest using [nvm](https://github.com/nvm-sh/nvm) for linux or [nvm-windows](https://github.com/coreybutler/nvm-windows) for windows)
 ```
 nvm install 16.13.1
 nvm alias default 16.13.1
