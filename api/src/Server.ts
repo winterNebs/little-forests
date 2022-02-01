@@ -1,8 +1,9 @@
-import morgan from 'morgan';
-import helmet from 'helmet';
+import morgan from "morgan";
+import helmet from "helmet";
 import StatusCodes from 'http-status-codes';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import plants from "./routes/plants";
 import {connect} from "mongoose";
 
 import 'express-async-errors';
@@ -37,6 +38,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Add APIs
+app.use("/", plants);
 
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
