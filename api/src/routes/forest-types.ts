@@ -2,27 +2,30 @@ import { Router, Request, Response, NextFunction } from "express";
 
 const router: Router = Router();
 
-router.get("/plants/", (req: Request, res: Response) => {
+router.get("/forests/", (req: Request, res: Response) => {
 	res.send({});
 });
-router.get("/plant/:id", (req: Request, res: Response) => {
+router.get("/forests/:id", (req: Request, res: Response) => {
 	res.send({});
 });
 
 router.get(
-	"/api/plants/",
+	"/api/forests/",
 	(req: Request, res: Response, next: NextFunction) => {
 		res.send([]);
 	}
 );
 
 // need authentication
-router.post("/api/plant", (req: Request, res: Response, next: NextFunction) => {
-	res.send([]);
-});
+router.post(
+	"/api/forest",
+	(req: Request, res: Response, next: NextFunction) => {
+		res.send([]);
+	}
+);
 
 router.get(
-	"/api/plant/:id",
+	"/api/forest/:id",
 	(req: Request, res: Response, next: NextFunction) => {
 		res.send({});
 	}

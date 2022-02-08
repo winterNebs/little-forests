@@ -5,6 +5,8 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import plants from "./routes/plants";
 import users from "./routes/users";
+import forests from "./routes/forest-types";
+import little_forests from "./routes/little-forests";
 import { connect } from "mongoose";
 
 import "express-async-errors";
@@ -44,6 +46,8 @@ if (process.env.NODE_ENV === "production") {
 // Add APIs
 app.use("/", plants);
 app.use("/", users);
+app.use("/", forests);
+app.use("/", little_forests);
 
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
