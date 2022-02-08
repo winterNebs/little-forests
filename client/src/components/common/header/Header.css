@@ -1,0 +1,15 @@
+.header {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.header-top-logo {
+  text-align: left;
+}
+
+.header-top-button {
+  text-align: right;
+}
