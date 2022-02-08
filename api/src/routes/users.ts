@@ -25,10 +25,15 @@ router.post(
 	"/api/users/register",
 	(req: Request, res: Response, next: NextFunction) => {
 		try {
-			createUser(req.body);
-			res.send({});
+			if (req.body.name && req.body.email && req.body.password) {
+				createUser(req.body);
+				res.redirect("/login");
+			} else {
+				res.sendStatus(400);
+			}
 		} catch (err) {
 			logger.warn(err);
+			res.status(500).send(err);
 		}
 	}
 );
