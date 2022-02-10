@@ -1,25 +1,31 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import logo from './logo.svg';
 import './App.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { green } from '@mui/material/colors'
+import { Header } from './components/common';
+import { Footer } from './components/common';
+import HomeContainer from './components/HomeContainer';
+
+// Consistent theme for the website
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: green[500],
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header />
+        <HomeContainer />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
