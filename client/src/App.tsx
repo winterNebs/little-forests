@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import logo from './logo.svg';
 import './App.css';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles'
-import { green } from '@material-ui/core/colors'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { green } from '@mui/material/colors'
+import { Header } from './components/common';
+import { Footer } from './components/common';
 import HomeContainer from './components/HomeContainer';
 
 // Consistent theme for the website
@@ -19,7 +21,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-      <HomeContainer />
+        <Header />
+        <HomeContainer />
+        <Footer />
       </div>
     </ThemeProvider>
   );

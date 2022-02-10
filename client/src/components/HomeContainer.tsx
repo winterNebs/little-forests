@@ -1,5 +1,5 @@
-import { Grid } from '@material-ui/core'
-import { Button } from '@material-ui/core'
+import { Grid } from '@mui/material'
+import { Button } from '@mui/material'
 import SecondaryItem from './SecondaryItem'
 
 // Component to show the home page

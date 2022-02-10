@@ -1,5 +1,5 @@
-import { Button } from "@material-ui/core";
-import { Container } from "@material-ui/core";
+import { Button } from "@mui/material";
+import { Container } from "@mui/material";
 import '@fontsource/roboto'
 
 type Props = {
