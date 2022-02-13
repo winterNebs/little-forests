@@ -7,7 +7,6 @@ import {
 	getModelForClass,
 } from "@typegoose/typegoose";
 import { hash, compare } from "bcrypt";
-import { Model, Schema } from "mongoose";
 export const user_roles: readonly ["admin", "editor", "user"] = [
 	"admin",
 	"editor",
@@ -30,7 +29,7 @@ export class ResetToken {
 	}
 	next();
 })
-@index({ email: 1 }, { collation: { locale: "en", strength: 1 }, unique: true })
+
 export class UserClass {
 	@prop({
 		required: true,

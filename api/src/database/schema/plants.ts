@@ -25,30 +25,10 @@ export const treeType: readonly["diciduous", "conifer", "evergreen"] = [
     "evergreen",
 ];
 
-export const advantages: readonly["medicinal", "nut", "nitrogen", "flower", "sweetwater", "fruit", "birds", "wood", "wildlife", "habitat", "lumber", "dye", "edible leaves", "windbreak", "whistles", "soap", "fuel", "silk" ] = [
-    "medicinal",
-    "nut",
-    "nitrogen",
-    "flower",
-    "sweetwater",
-    "fruit",
-    "birds",
-    "wood",
-    "wildlife",
-    "habitat",
-    "lumber",
-    "dye",
-    "edible leaves",
-    "windbreak",
-    "whistles",
-    "soap",
-    "fuel",
-    "silk"
-];
 
 @index({name: 1}, {unique: true})
 
-export class PlantAttributeClass{
+export class PlantAttribute{
     @prop()
     public name!: string;
 
@@ -68,15 +48,20 @@ export class Plant{
     @prop()
     public maxHeight!: string;
 
-    @prop({enum: advantages})
-    public advantages!: string[];
+    @prop()
+    public advantages!: PlantAttribute[];
 
     @prop()
     public images!: string[];
 }
 
 
-export const PlantAttribute:ReturnModelType<
-    typeof PlantAttributeClass,
+export const PlantAttributes:ReturnModelType<
+    typeof PlantAttribute,
     {}
-> = getModelForClass(PlantAttributeClass, {schemaOptions: {collection: "plantAttributes"}});
+> = getModelForClass(PlantAttribute, {schemaOptions: {collection: "plantAttributes"}});
+
+export const Plants:ReturnModelType<
+    typeof Plant,
+    {}
+> = getModelForClass(Plant, {schemaOptions: {collection: "plants"}});
