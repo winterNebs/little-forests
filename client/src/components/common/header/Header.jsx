@@ -1,9 +1,23 @@
-import React from "react";
+import { useState } from "react";
+import { Grid, Button, Modal, Box, Paper } from "@mui/material";
 import { Navbar } from "../../common";
 import "./Header.css";
-import Button from "@mui/material/Button";
+import LogIn from "../LogIn";
 
 function Header() {
+  // Declare a new state variable for the modal
+  const [open, setOpen] = useState(false);
+
+  // Function to handle modal open
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  // Function to handle modal close
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <section className="header">
       <section className="header-top">
@@ -15,6 +29,23 @@ function Header() {
         <section className="header-top-button">
           <Button variant="contained">Log In</Button>
         </section>
+
+        <Modal
+          open={open}
+          onClose={handleClose}
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Box
+            sx={{
+              width: 400,
+              backgroundColor: "white",
+              borderRadius: "25px",
+              marginLeft: "40vw",
+            }}
+          >
+            <LogIn />
+          </Box>
+        </Modal>
       </section>
 
       <section className="header-bottom">
