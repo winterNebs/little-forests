@@ -1,12 +1,29 @@
-import { Grid } from '@mui/material'
-import { Button } from '@mui/material'
-import SecondaryItem from './SecondaryItem'
+import { useState } from 'react';
+import { Grid, Button, Modal, Box } from '@mui/material';
+import SecondaryItem from '../SecondaryItem';
+import SignUp from '../SignUp';
+import '../../App.css';
+import { style } from '@mui/system';
 
 // Component to show the home page
-const HomeContainer = () => {
+const HomePage = () => {
+
+    // Declare a new state variable for the modal 
+    const [open, setOpen] = useState(false);
+
+    // Function to handle modal open
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    // Function to handle modal close
+    const handleClose = () => {
+        setOpen(false);
+    };
+    
     return (
         <>
-        
+
         <Grid 
         container
         style = {{ paddingTop : 100 }}
@@ -20,10 +37,26 @@ const HomeContainer = () => {
             <h3>Little Forests</h3>
             <p>Growing forests in your community, sign up to begin your own Little Forest!</p>
             <Button
+            onClick={handleOpen}
             variant="contained" 
             color="primary"  
             style = {{ color: "white" }}
             >Sign Up</Button>
+
+            <Modal 
+            open={open}
+            onClose={handleClose}
+            >
+                <Box sx={{
+                    width: 400,
+                    backgroundColor: 'white',
+                    borderRadius: '25px'
+                }}>
+                    <SignUp />
+                </Box>
+                
+            </Modal>
+
             </Grid>
         </Grid>
             
@@ -49,4 +82,4 @@ const HomeContainer = () => {
     )
 }
 
-export { HomeContainer as default }
+export { HomePage as default }
