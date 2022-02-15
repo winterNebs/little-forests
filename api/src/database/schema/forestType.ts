@@ -37,6 +37,9 @@ export class ForestType{
     @prop()
     public images!: string[];
 
+    @prop()
+    active!: true;
+
 }
 
 export const SiteConditionRules:ReturnModelType<

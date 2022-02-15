@@ -4,12 +4,12 @@ export function createPlant(plant: Plant){
     return Plants.create(plant);
 }
 
-export function getPlantByCommon(common: any){
-    return Plants.find(common).exec();
+export function getPlantByCommon(common: string){
+    return Plants.find({commonName : common}).exec();
 }
 
-export function getPlantsByType(layer: any){
-    return Plants.find(layer).exec();
+export function getPlantsByType(layer: string){
+    return Plants.find({layer : layer}).exec();
 }
 
 export function getPlantsByAttrib(attrib: PlantAttribute){

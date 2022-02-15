@@ -4,15 +4,15 @@ export function createForestType(){
     return ForestTypes.create(ForestType);
 }
 
-export function getByName(name: any){
-    return ForestTypes.find(name).exec();
+export function getByName(name: string){
+    return ForestTypes.find({name : name}).exec();
 }
 
 export function getByCondition(condition: SiteConditionRule){
     return ForestTypes.find(condition).exec();
 }
 
-export function markInactive(name: any){
+export function markInactive(name: string){
     return ForestTypes.updateOne({name: name}, {$set: {active: false}}).exec();
 }
 
