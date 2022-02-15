@@ -57,13 +57,13 @@ export class UserClass {
 	public reset?: ResetToken;
 	@prop()
 	public static findByCredentials: Function = async function (
-		name: string,
+		email: string,
 		password: string
 	): Promise<DocumentType<UserClass>> {
 		// search for a user by email and password.
 		try {
 			const user: DocumentType<UserClass> | null = await User.findOne({
-				name: name,
+				email: email,
 			})
 				.collation({ locale: "en", strength: 1 })
 				.exec();

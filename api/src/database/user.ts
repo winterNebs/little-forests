@@ -6,8 +6,8 @@ export function createUser(user: UserClass) {
 	return User.create(user);
 }
 
-export function getByCredentials(name: any, pw: any) {
-	return User.findByCredentials(name, pw);
+export function getByCredentials(email: any, pw: any) {
+	return User.findByCredentials(email, pw);
 }
 
 export function getAllUsers() {

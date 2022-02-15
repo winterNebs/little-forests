@@ -12,6 +12,7 @@ import * as mongoose from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
+import "./middleware/passport-auth";
 import "express-async-errors";
 
 import logger from "@shared/Logger";
@@ -48,8 +49,8 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use(
 	session({
-		name: "",
-		secret: "",
+		name: "LittleForests",
+		secret: process.env.SECRET || "DEV SECRET DON't USE",
 		resave: true,
 		saveUninitialized: true,
 		cookie: {
