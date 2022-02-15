@@ -63,9 +63,9 @@ export default function LogIn() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  id="user-or-email"
+                  label="Username or Email"
+                  name="user-or-email"
                   autoComplete="email"
                 />
               </Grid>
@@ -89,6 +89,13 @@ export default function LogIn() {
             >
               Log In
             </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Don't have an account? Sign Up
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
