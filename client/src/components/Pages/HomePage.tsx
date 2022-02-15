@@ -62,7 +62,7 @@ const HomePage = () => {
         </Grid>
             
         <Grid container 
-        style = {{ paddingTop : "8vh", paddingBottom: "5vh", marginTop: "8vh", marginBottom: '8vh', height: '10vh' }}
+        style = {{ paddingTop : "8vh", paddingBottom: "5vh", marginTop: "8vh", marginBottom: '8vh'}}
         justifyContent = "space-evenly"
         alignItems = "stretch"
         direction = "row"
@@ -70,12 +70,12 @@ const HomePage = () => {
         >
             <Grid item xs={1}></Grid>
             <Grid item xs={5}>
-                <Paper elevation={24}>
+                <Paper elevation={24} style={{height: '20vh', paddingTop: '8vh' }}>
                     <SecondaryItem buttonText='Browse Forests' paraText='Take a look at some of the forests that our users have created!' />
                 </Paper>
             </Grid>
             <Grid item xs={5}>
-                <Paper elevation={24}>
+                <Paper elevation={24} style={{height: '20vh', paddingTop: '8vh'}}>
                     <SecondaryItem buttonText='Browse Plants' paraText='Need inspiration? Take a look at our plant list and see if anything catches your eye!' />
                 </Paper>
             </Grid>
