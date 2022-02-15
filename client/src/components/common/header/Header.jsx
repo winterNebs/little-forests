@@ -13,7 +13,7 @@ function Header() {
           </a>
         </section>
         <section className="header-top-button">
-          <Button variant="contained">Log In</Button>
+          <Button variant="contained" style={{ color: "white" }}>Log In</Button>
         </section>
       </section>
 

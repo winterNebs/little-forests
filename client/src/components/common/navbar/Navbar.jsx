@@ -6,11 +6,11 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 function Navbar() {
   return (
     <div className="navbar">
-      <ButtonGroup>
-        <Button variant="text">Browse Forests</Button>
-        <Button variant="text">Browse Plants</Button>
-        <Button variant="text">About Us</Button>
-        <Button variant="text">Contact</Button>
+      <ButtonGroup variant='outlined' size='large'>
+        <Button style={{ color: "white" }}>Browse Forests</Button>
+        <Button style={{ color: "white" }}>Browse Plants</Button>
+        <Button style={{ color: "white" }}>About Us</Button>
+        <Button style={{ color: "white" }}>Contact</Button>
       </ButtonGroup>
     </div>
   );

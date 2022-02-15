@@ -25,7 +25,7 @@ const HomePage = () => {
 
         <Grid 
         container
-        style = {{ paddingTop : 100 }}
+        style = {{ marginTop: '20vh', marginBottom: '20vh'}}
         spacing = {10}
         justifyContent = "center"
         alignItems = "stretch"
@@ -62,7 +62,7 @@ const HomePage = () => {
         </Grid>
             
         <Grid container 
-        style = {{ paddingTop : "8vh", paddingBottom: "5vh", marginTop: "8vh", marginBottom: '8vh' }}
+        style = {{ paddingTop : "8vh", paddingBottom: "5vh", marginTop: "8vh", marginBottom: '8vh', height: '10vh' }}
         justifyContent = "space-evenly"
         alignItems = "stretch"
         direction = "row"
