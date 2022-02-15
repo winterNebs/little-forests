@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Grid, Button, Modal, Box } from '@mui/material';
+import { Grid, Button, Modal, Box, Paper } from '@mui/material';
 import SecondaryItem from '../SecondaryItem';
 import SignUp from '../SignUp';
 import '../../App.css';
-import { style } from '@mui/system';
 
 // Component to show the home page
 const HomePage = () => {
@@ -20,7 +19,7 @@ const HomePage = () => {
     const handleClose = () => {
         setOpen(false);
     };
-    
+
     return (
         <>
 
@@ -32,46 +31,55 @@ const HomePage = () => {
         alignItems = "stretch"
         direction = "column"
         >
-        <Grid item>
-            
-            <h3>Little Forests</h3>
-            <p>Growing forests in your community, sign up to begin your own Little Forest!</p>
-            <Button
-            onClick={handleOpen}
-            variant="contained" 
-            color="primary"  
-            style = {{ color: "white" }}
-            >Sign Up</Button>
-
-            <Modal 
-            open={open}
-            onClose={handleClose}
-            >
-                <Box sx={{
-                    width: 400,
-                    backgroundColor: 'white',
-                    borderRadius: '25px'
-                }}>
-                    <SignUp />
-                </Box>
+            <Grid item>
                 
-            </Modal>
+                <h3>Little Forests</h3>
+                <p>Growing forests in your community, sign up to begin your own Little Forest!</p>
+                <Button
+                onClick={handleOpen}
+                variant="contained" 
+                color="primary"  
+                style = {{ color: "white" }}
+                >Sign Up</Button>
+
+                <Modal 
+                open={open}
+                onClose={handleClose}
+                sx={{ alignItems: "center", justifyContent: "center"}}
+                >
+                    <Box sx={{
+                        width: 400,
+                        backgroundColor: 'white',
+                        borderRadius: '25px',
+                        marginLeft: '40vw'
+                    }}>
+                        <SignUp />
+                    </Box>
+                    
+                </Modal>
 
             </Grid>
         </Grid>
             
         <Grid container 
-        style = {{ paddingTop : 100 }}
+        style = {{ paddingTop : "8vh", paddingBottom: "5vh", marginTop: "8vh", marginBottom: '8vh' }}
         justifyContent = "space-evenly"
-        alignItems = "center"
+        alignItems = "stretch"
         direction = "row"
+        spacing = {4}
         >
-            <Grid item xs>
-                <SecondaryItem buttonText='Browse Forests' paraText='Take a look at other projects that our users have created!' />
+            <Grid item xs={1}></Grid>
+            <Grid item xs={5}>
+                <Paper elevation={24}>
+                    <SecondaryItem buttonText='Browse Forests' paraText='Take a look at some of the forests that our users have created!' />
+                </Paper>
             </Grid>
-            <Grid item xs>
-                <SecondaryItem buttonText='Browse Plants' paraText='Need inspiration? Take a look at our plant list and see if anything catches your eye!' />
+            <Grid item xs={5}>
+                <Paper elevation={24}>
+                    <SecondaryItem buttonText='Browse Plants' paraText='Need inspiration? Take a look at our plant list and see if anything catches your eye!' />
+                </Paper>
             </Grid>
+            <Grid item xs={1}></Grid>
         </Grid>
             
 
