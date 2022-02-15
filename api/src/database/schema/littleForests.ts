@@ -29,6 +29,9 @@ export class LittleForest{
     public plants!: [Plant, number];  //plant and how many are ordered
 
     @prop()
+    public isPublic!: false;
+
+    @prop()
     public images!: string[];
 
 }

@@ -7,6 +7,7 @@ import {
 	getModelForClass,
 } from "@typegoose/typegoose";
 import { hash, compare } from "bcrypt";
+import { LittleForest } from "./littleForests";
 export const user_roles: readonly ["admin", "editor", "user"] = [
 	"admin",
 	"editor",
@@ -44,6 +45,8 @@ export class UserClass {
 		unique: true,
 	})
 	public email!: string;
+	@prop()
+	public ownedForests!: LittleForest[];
 	@prop({ required: true, minlength: 7 })
 	public password!: string;
 	@prop({
