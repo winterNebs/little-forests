@@ -58,3 +58,7 @@ export async function useResetToken(token: string, password: string) {
 		throw new Error("user not found");
 	}
 }
+
+export function getUserForests(){
+	return User.find({}, {ownedForests: 1}).lean<UserClass>().exec();
+}
