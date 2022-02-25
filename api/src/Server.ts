@@ -17,6 +17,7 @@ import "express-async-errors";
 
 import logger from "@shared/Logger";
 import passport from "passport";
+import { errorHandler, notFoundHandler } from "./middleware/error-handler";
 
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
@@ -69,6 +70,8 @@ app.use("/", users);
 app.use("/", forests);
 app.use("/", little_forests);
 
+app.use(notFoundHandler);
+app.use(errorHandler);
 // Print API errors
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
