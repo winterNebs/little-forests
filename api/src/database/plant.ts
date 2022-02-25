@@ -5,15 +5,19 @@ export function createPlant(plant: Plant){
 }
 
 export function getPlantByCommon(common: string){
-    return Plants.find({commonName : common}).exec();
+    return Plants.find({commonName : common}).lean<Plant>().exec();
+}
+
+export function getPlantById(id: string){
+    return Plants.findById(id).lean<Plant>().exec();
 }
 
 export function getPlantsByType(layer: string){
-    return Plants.find({layer : layer}).exec();
+    return Plants.find({layer : layer}).lean<Plant>().exec();
 }
 
 export function getPlantsByAttrib(attrib: PlantAttribute){
-    return Plants.find(attrib).exec();
+    return Plants.find(attrib).lean<Plant>().exec();
 }
 
 export function getAllPlants(){

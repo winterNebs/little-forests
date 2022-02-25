@@ -19,19 +19,19 @@ export class LittleForest{
     @prop()
     public name!: string;
 
-    @prop()
+    @prop({type: SiteConditionRule, required: true, default: []})
     public siteConditions!: SiteConditionRule[];
 
     @prop()
     public forestType!: ForestType;
 
-    @prop()
-    public plants!: [Plant, number];  //plant and how many are ordered
+    @prop({type: [Plant, Number], required: true, default: []})
+    public plants!: [Plant, number][];  //plant and how many are ordered
 
     @prop()
     public isPublic!: false;
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public images!: string[];
 
 }

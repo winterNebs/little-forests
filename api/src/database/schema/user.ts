@@ -5,8 +5,10 @@ import {
 	DocumentType,
 	ReturnModelType,
 	getModelForClass,
+	mongoose,
 } from "@typegoose/typegoose";
 import { hash, compare } from "bcrypt";
+import { Types } from "mongoose";
 import { LittleForest } from "./littleForests";
 export const user_roles: readonly ["admin", "editor", "user"] = [
 	"admin",
@@ -45,8 +47,10 @@ export class UserClass {
 		unique: true,
 	})
 	public email!: string;
-	@prop()
+	@prop({type: LittleForest, required: true, default: []})
 	public ownedForests!: LittleForest[];
+
+
 	@prop({ required: true, minlength: 7 })
 	public password!: string;
 	@prop({
