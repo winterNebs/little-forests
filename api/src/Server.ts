@@ -4,18 +4,18 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import plants from "./routes/plants";
 import users from "./routes/users";
-import forests from "./routes/forest-types";
-import little_forests from "./routes/little-forests";
+import forests from "./routes/forestTypes";
+import little_forests from "./routes/littleForests";
 import { connect } from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
-import "./middleware/passport-auth";
+import "./middleware/passportAuth";
 import "express-async-errors";
 
 import logger from "@shared/Logger";
 import passport from "passport";
-import { errorHandler, notFoundHandler } from "./middleware/error-handler";
+import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 
 const app = express();
 
