@@ -8,7 +8,7 @@ import {
 	getByCredentials,
 	generateResetToken,
 } from "../database/user";
-import { isLoggedIn } from "src/middleware/passport-auth";
+import { isLoggedIn } from "src/middleware/passportAuth";
 import passport from "passport";
 
 const router: Router = Router();
