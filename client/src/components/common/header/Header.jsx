@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Grid, Button, Modal, Box, Paper } from "@mui/material";
+import { Grid, Button, Modal, Box } from "@mui/material";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar } from "../../common";
 import "./Header.css";
 import LogIn from "../../LogIn";
@@ -22,9 +23,12 @@ function Header() {
     <section className="header">
       <section className="header-top">
         <section className="header-top-logo">
-          <a href="/" className="header-logo">
-            LOGO
-          </a>
+          <Router>
+            <Link to="/">
+              LOGO
+            </Link>
+          </Router>
+          
         </section>
         <section className="header-top-button">
           <Button variant="contained" onClick={handleOpen}>Log In</Button>
