@@ -23,11 +23,11 @@ function Header() {
     <section className="header">
       <section className="header-top">
         <section className="header-top-logo">
-          <Router>
-            <Link to="/">
-              LOGO
-            </Link>
-          </Router>
+          
+          <Link to="/">
+            LOGO
+          </Link>
+          
           
         </section>
         <section className="header-top-button">

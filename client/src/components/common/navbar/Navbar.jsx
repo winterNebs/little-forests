@@ -8,12 +8,12 @@ function Navbar() {
   return (
     <div className="navbar">
       <ButtonGroup variant='outlined' size='large'>
-        <Router>
-          <Button component={Link} to='/browseforests' style={{ color: "white" }}>Browse Forests</Button>
-          <Button component={Link} to='/browseplants' style={{ color: "white" }}>Browse Plants</Button>
-          <Button component={Link} to='/about' style={{ color: "white" }}>About Us</Button>
-          <Button component={Link} to='/contact' style={{ color: "white" }}>Contact</Button>
-        </Router>
+        
+        <Button component={Link} to='/browseforests' style={{ color: "white" }}>Browse Forests</Button>
+        <Button component={Link} to='/browseplants' style={{ color: "white" }}>Browse Plants</Button>
+        <Button component={Link} to='/about' style={{ color: "white" }}>About Us</Button>
+        <Button component={Link} to='/contact' style={{ color: "white" }}>Contact</Button>
+       
       </ButtonGroup>
     </div>
   );
