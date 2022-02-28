@@ -21,16 +21,16 @@ function App() {
     <ThemeProvider theme={theme}>
 
       <div className="App">
-      <Header />
-        <Routes>
-          <Route path='/'>
-            <HomePage />  
-          </Route>
-          <Route path='/browseforests'>
-            <h1>Browse Forests</h1>
-          </Route>
-        </Routes>
-      <Footer />
+        <Header />
+
+        <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/browseforests' />
+          </Routes>
+        </Router>
+
+        <Footer />
       </div>
     </ThemeProvider>
   );
