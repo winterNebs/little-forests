@@ -25,8 +25,8 @@ export class ForestType{
     @prop()
     public name!: string;
 
-    @prop({type: SiteConditionRule, required: true, default: []})
-    public siteConditions!: SiteConditionRule[];
+    @prop({type: String, required: true, default: []})
+    public siteConditions!: string[];
 
     @prop({type: [Number, Number], required: true, default: []})
     public layersRatio!: [Number, Number][]; //min and max of recommended layer ratios
