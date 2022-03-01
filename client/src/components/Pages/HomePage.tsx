@@ -21,7 +21,7 @@ const HomePage = () => {
     };
 
     return (
-        <>
+        <div>
 
         <Grid 
         container
@@ -84,8 +84,7 @@ const HomePage = () => {
             
 
         
-        
-        </>
+        </div>
         
     )
 }
