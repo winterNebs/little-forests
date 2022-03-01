@@ -6,6 +6,9 @@ import { Header } from './components/common';
 import { Footer } from './components/common';
 import HomePage from './components/Pages/HomePage';
 import AccountDashboard from './components/Pages/AccountDashboard';
+import ForestResultsPage from './components/Pages/ForestResultsPage';
+import ForestResultsList from './components/Pages/ForestResultsList';
+import PlantListPage from './components/Pages/PlantListPage';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 // Consistent theme for the website
@@ -27,6 +30,9 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/dashboard" element={<AccountDashboard />} />
+              <Route path="/results-list" element={<ForestResultsList />} />
+              <Route path="/results-page" element={<ForestResultsPage />} />
+              <Route path="/plant-list" element={<PlantListPage />} />
             </Routes>
             <Footer />
           </Router>

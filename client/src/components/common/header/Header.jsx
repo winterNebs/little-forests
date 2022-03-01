@@ -27,10 +27,13 @@ function Header() {
           </a>
         </section>
         <section className="header-top-button">
-          <Button variant="contained" onClick={handleOpen}>Log In</Button>
+          <Button variant="contained" onClick={handleOpen}>
+            Log In
+          </Button>
           <Modal
             open={open}
             onClose={handleClose}
+            //closeAfterTransaction ?
             sx={{ alignItems: "center", justifyContent: "center" }}
           >
             <Box

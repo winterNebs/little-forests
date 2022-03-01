@@ -2,32 +2,22 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 export default function ProfileContainerLeft() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-      >
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Account Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,
+          m: 3,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
@@ -38,23 +28,27 @@ export default function ProfileContainerLeft() {
         anchor="left"
       >
         <Toolbar />
-        <Divider />
+          
             <Box //placeholder for profile image later
                 sx={{
-                    width: 239,
-                    height: 300,
-                    backgroundColor: 'primary.dark'
+                    width: 200,
+                    height: 260,
+                    m: 3,
+                    backgroundColor: 'primary.dark',
+                    borderRadius: 3
                 }}
+                
             />
-        
-            <Typography align="left" variant="body1">
+            <Box sx={{ width: 200, height: 260, m:3 }}>
+              <Typography align="left" variant="body1">
                 <b>First Name, Last Name </b>
-                <br/>
+                <br/><br/>
                 <b>Bio:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. 
-            </Typography>
-            <Button variant="contained">Edit Profile</Button>
-        <Divider />
+                <br/><br/>
+              </Typography>
+              <Button variant="contained">Edit Profile</Button>
+            </Box>
       </Drawer>
       <Box
         component="main"
@@ -66,8 +60,9 @@ export default function ProfileContainerLeft() {
         <Typography align="left" variant="h4">My Little Forests</Typography>
         <br />
         <br />      
-        <Box sx={{ width: 300, height: 400, p: 5, border: "1px dashed grey" }}>
-          
+        <Box sx={{ width: 300, height: 400, p: 5, border: "1px dashed grey", borderRadius: 5 }}>
+          <br /><br /><br /><br /><br />
+          <AddCircleIcon sx={{ fontSize: 50, color: 'primary.main' }} /> <br />
           <Button>Create New Project</Button>
         </Box>
 
