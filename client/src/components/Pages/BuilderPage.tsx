@@ -108,7 +108,7 @@ const BuilderPage = () => {
             direction = "row"
             >
                 <Grid item xs={12}>
-                    <h2>Input Site Conditions</h2>
+                    <h2>Little Forest Builder</h2>
                 </Grid>
                 
                 <Grid item xs={12}>

@@ -48,7 +48,7 @@ const Header = () => {
                 marginLeft: "40vw",
               }}
             >
-              <LogIn />
+              <LogIn setState={setOpen} modalState={open} />
             </Box>
           </Modal>
         </section>

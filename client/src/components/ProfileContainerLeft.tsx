@@ -1,11 +1,7 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Box, Drawer, CssBaseline, Toolbar, Typography, Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 250;
 
@@ -63,7 +59,7 @@ export default function ProfileContainerLeft() {
         <Box sx={{ width: 300, height: 400, p: 5, border: "1px dashed grey", borderRadius: 5 }}>
           <br /><br /><br /><br /><br />
           <AddCircleIcon sx={{ fontSize: 50, color: 'primary.main' }} /> <br />
-          <Button>Create New Project</Button>
+          <Button component={Link} to='/builder'>Create New Project</Button>
         </Box>
 
       </Box>

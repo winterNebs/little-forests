@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ForestResultsPage() {
+const ForestResultsPage = () => {
   return (
     <div>ForestResultsPage</div>
-  )
+  );
 }
 
-export default ForestResultsPage
+export { ForestResultsPage as default }
