@@ -13,10 +13,10 @@ export class SiteConditionRule{
     @prop()
     public name!: string;  //name of rule
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public allowedValues!: string[];  //values allowed in the rule
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public images!: string[];
 }
 
@@ -25,16 +25,16 @@ export class ForestType{
     @prop()
     public name!: string;
 
-    @prop()
+    @prop({type: SiteConditionRule, required: true, default: []})
     public siteConditions!: SiteConditionRule[];
 
-    @prop()
-    public layersRatio!: number[][]; //min and max of recommended layer ratios
+    @prop({type: [Number, Number], required: true, default: []})
+    public layersRatio!: [Number, Number][]; //min and max of recommended layer ratios
 
-    @prop()
+    @prop({type: Plant, required: true, default: []})
     public domSpecies!: Plant[]; //list of plants
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public images!: string[];
 
     @prop()

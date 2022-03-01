@@ -1,12 +1,13 @@
 import { Router, Request, Response, NextFunction } from "express";
+import { getAllPlants, getPlantById } from "src/database/plant";
 
 const router: Router = Router();
 
 router.get("/plants/", (req: Request, res: Response) => {
-	res.send({});
+	res.send(getAllPlants());
 });
 router.get("/plant/:id", (req: Request, res: Response) => {
-	res.send({});
+	res.send(getPlantById(req.params.id));
 });
 
 router.get(

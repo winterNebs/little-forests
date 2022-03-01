@@ -1,25 +1,23 @@
 import morgan from "morgan";
 import helmet from "helmet";
-import StatusCodes from "http-status-codes";
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import plants from "./routes/plants";
 import users from "./routes/users";
-import forests from "./routes/forest-types";
-import little_forests from "./routes/little-forests";
+import forests from "./routes/forestTypes";
+import little_forests from "./routes/littleForests";
 import { connect } from "mongoose";
-import * as mongoose from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
-import "./middleware/passport-auth";
+import "./middleware/passportAuth";
 import "express-async-errors";
 
 import logger from "@shared/Logger";
 import passport from "passport";
+import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 
 const app = express();
-const { BAD_REQUEST } = StatusCodes;
 
 /************************************************************************************
  *                              Set basic express settings
@@ -69,14 +67,8 @@ app.use("/", users);
 app.use("/", forests);
 app.use("/", little_forests);
 
-// Print API errors
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-	logger.err(err, true);
-	return res.status(BAD_REQUEST).json({
-		error: err.message,
-	});
-});
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 /************************************************************************************
  *                              Serve front-end content

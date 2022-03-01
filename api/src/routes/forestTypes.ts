@@ -1,12 +1,13 @@
 import { Router, Request, Response, NextFunction } from "express";
+import { getAllForestTypes, getForestTypeByID } from "src/database/forestTypes";
 
 const router: Router = Router();
 
 router.get("/forests/", (req: Request, res: Response) => {
-	res.send({});
+	res.send(getAllForestTypes());
 });
 router.get("/forests/:id", (req: Request, res: Response) => {
-	res.send({});
+	res.send(getForestTypeByID(req.params.id));
 });
 
 router.get(
