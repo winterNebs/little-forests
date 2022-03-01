@@ -1,16 +1,8 @@
 import * as React from 'react';
 import { Box, Grid, Paper, Radio, Stack } from '@mui/material';
-import { SiteConditionValues as ConditionValues} from './Pages/BuilderPage';
-import SiteCondition from './SiteCondition';
+import { ContainerValues } from './Pages/BuilderPage';
 
-// Create our prop interface
-interface ContainerProps{
-    containerTitle: string,
-    containerDescription: string, 
-    conditionList: ConditionValues[],
-}
-
-const ConditionContainer = (props: ContainerProps) => {
+const ConditionContainer = (props: ContainerValues) => {
 
     // Use State to track the selected radio buttons
     const [selectedValue, setSelectedValue] = React.useState('default')
@@ -21,33 +13,35 @@ const ConditionContainer = (props: ContainerProps) => {
 
     return (
         <>
-            <Paper elevation={24}>
+            <Paper elevation={12} style={{marginTop: '5vh'}}>
                 <Grid container 
                 justifyContent = "center"
                 alignItems = "stretch"
                 direction = "row"
                 >
                     <Grid item xs={12}>
-                        <h3>{props.containerTitle}</h3>
+                        <h3>{props.title}</h3>
                     </Grid>
                     <Grid item xs={12}>
-                        <h4>{props.containerDescription}</h4>
+                        <h4>{props.description}</h4>
                     </Grid>   
 
-                    {props.conditionList.map( condition => (
+                    {props.siteConditions.map( condition => (
                         <Grid item xs={3}>
-                            <Stack>
-                                if(typeof condition.imageURL !== 'undefined'){
-                                    <SiteCondition imageURL={condition.imageURL} subtitle={condition.subtitle} />
-                                }
-                                else{
-                                    <SiteCondition subtitle={condition.subtitle} />
-                                }
+                            <Stack spacing={-2}>
+                                {typeof condition.imageURL !== 'undefined' ? 
+                                    <>
+                                        <img src={condition.imageURL} /> 
+                                        <h4>{condition.subtitle}</h4>
+                                    </>
+                                    : <h4>{condition.subtitle}</h4>
+                                } 
                                 <Radio 
-                                    checked={selectedValue == {condition.subtitle}}
+                                    checked={selectedValue === condition.subtitle as string}
                                     onChange={handleChange}
                                     value={condition.subtitle}
-                                    name={props.containerTitle}
+                                    name={props.title}
+                                    sx={{zIndex: 1050}}
                                 />
                             </Stack>
                         </Grid>
