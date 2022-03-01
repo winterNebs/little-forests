@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Grid, Button, Modal, Box } from "@mui/material";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { Navbar } from "../../common";
+import { Navbar } from "..";
 import "./Header.css";
 import LogIn from "../../LogIn";
 
