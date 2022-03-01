@@ -19,8 +19,8 @@ export class LittleForest{
     @prop()
     public name!: string;
 
-    @prop({type: SiteConditionRule, required: true, default: []})
-    public siteConditions!: SiteConditionRule[];
+    @prop({type: [String, SiteConditionRule], required: true, default: []})
+    public siteConditions!: [String, SiteConditionRule][];
 
     @prop()
     public forestType!: ForestType;
