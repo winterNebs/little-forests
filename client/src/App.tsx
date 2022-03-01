@@ -1,12 +1,12 @@
-import React from 'react';
 import ReactDOM from 'react-dom'
-import logo from './logo.svg';
 import './App.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { green } from '@mui/material/colors'
 import { Header } from './components/common';
 import { Footer } from './components/common';
-import HomeContainer from './components/HomeContainer';
+import HomePage from './components/Pages/HomePage';
+import BuilderPage from './components/Pages/BuilderPage';
 
 // Consistent theme for the website
 const theme = createTheme({
@@ -17,16 +17,22 @@ const theme = createTheme({
   },
 });
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
+
       <div className="App">
         <Header />
-        <HomeContainer />
+
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/builder' element={<BuilderPage />} />
+        </Routes>
+
         <Footer />
       </div>
     </ThemeProvider>
   );
 }
 
-export default App;
+export { App as default };
