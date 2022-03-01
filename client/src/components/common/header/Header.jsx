@@ -5,7 +5,7 @@ import { Navbar } from "../../common";
 import "./Header.css";
 import LogIn from "../../LogIn";
 
-function Header() {
+const Header = () => {
   // Declare a new state variable for the modal
   const [open, setOpen] = useState(false);
 

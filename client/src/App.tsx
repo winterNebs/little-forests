@@ -6,7 +6,7 @@ import { green } from '@mui/material/colors'
 import { Header } from './components/common';
 import { Footer } from './components/common';
 import HomePage from './components/Pages/HomePage';
-import EditorPage from './components/Pages/EditorPage';
+import BuilderPage from './components/Pages/BuilderPage';
 
 // Consistent theme for the website
 const theme = createTheme({
@@ -17,7 +17,7 @@ const theme = createTheme({
   },
 });
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
 
@@ -26,7 +26,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/browseforests' element={<EditorPage />}/>
+          <Route path='/builder' element={<BuilderPage />} />
         </Routes>
 
         <Footer />
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export { App as default };
