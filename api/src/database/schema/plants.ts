@@ -48,10 +48,10 @@ export class Plant{
     @prop()
     public maxHeight!: string;
 
-    @prop()
+    @prop({type: PlantAttribute, required: true, default: []})
     public advantages!: PlantAttribute[];
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public images!: string[];
 }
 
