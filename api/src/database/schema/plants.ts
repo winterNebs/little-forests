@@ -12,6 +12,7 @@ images: String[]
 */
 
 import { getModelForClass, index, prop, ReturnModelType } from "@typegoose/typegoose";
+import { PlantAttribute } from "./plantAttribute";
 
 export const layers: readonly["canopy", "tree", "understory tree", "shrub"] = [
     "canopy",
@@ -27,12 +28,6 @@ export const treeType: readonly["diciduous", "conifer", "evergreen"] = [
 
 
 @index({name: 1}, {unique: true})
-
-export class PlantAttribute{
-    @prop()
-    public name!: string;
-
-}
 
 export class Plant{
     @prop()
@@ -54,12 +49,6 @@ export class Plant{
     @prop({type: String, required: true, default: []})
     public images!: string[];
 }
-
-
-export const PlantAttributes:ReturnModelType<
-    typeof PlantAttribute,
-    {}
-> = getModelForClass(PlantAttribute, {schemaOptions: {collection: "plantAttributes"}});
 
 export const Plants:ReturnModelType<
     typeof Plant,
