@@ -28,8 +28,8 @@ export class LittleForest{
     @prop({type: [Plant, Number], required: true, default: []})
     public plants!: [Plant, number][];  //plant and how many are ordered
 
-    @prop()
-    public isPublic!: false;
+    @prop({type: Boolean, required: true, default: false})
+    public isPublic!: boolean;
 
     @prop({type: String, required: true, default: []})
     public images!: string[];
