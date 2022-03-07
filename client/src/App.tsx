@@ -26,7 +26,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
 
       <div className="App">
-        <Header />
+        
 
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/plant-list" element={<PlantListPage />} />
         </Routes>
 
-        <Footer />
+        
       </div>
     </ThemeProvider>
   );
