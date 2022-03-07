@@ -2,6 +2,7 @@ import { Grid, Stack } from "@mui/material";
 import ProgressStepper from '../ProgressStepper';
 import '@fontsource/roboto'
 import ConditionContainer from "../ConditionContainer";
+import AccountHeader from "../common/AccountHeader";
 
 // Create our steps
 const steps = ['Input', 'Results', 'Plan', 'Plant']
@@ -100,6 +101,7 @@ const BuilderPage = () => {
 
     return (
         <>
+        <AccountHeader />
             <Grid 
             container
             style = {{ marginTop: '10vh', marginBottom: '20vh'}}
