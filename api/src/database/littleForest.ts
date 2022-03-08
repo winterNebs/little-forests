@@ -8,19 +8,19 @@ export function createLittleForest(littleForest: LittleForest){
 }
 
 export function getLFByForestType(type: ForestType){
-    return LittleForests.find(type).exec();
+    return LittleForests.find(type).lean<LittleForest>().exec();
 }
 
 export function getLFByAttrib(attrib: PlantAttribute){
-    return LittleForests.find(attrib).exec();
+    return LittleForests.find(attrib).lean<LittleForest>().exec();
 }
 
 export function getLFByForestName(name: string){
-    return LittleForests.find({name : name}).exec();
+    return LittleForests.find({name : name}).lean<LittleForest>().exec();
 }
 
 export function getLFByCondition(condition: SiteConditionRule){
-    return LittleForests.find(condition).exec();
+    return LittleForests.find(condition).lean<LittleForest>().exec();
 }
 
 export function getAllLittleForests(){
@@ -28,5 +28,5 @@ export function getAllLittleForests(){
 }
 
 export function getAllPublicLittleForests(){
-    return LittleForests.find({isPublic: true}).exec();
+    return LittleForests.find({isPublic: true}).lean<LittleForest>().exec();
 }

@@ -11,7 +11,8 @@ images: String[]
 */
 
 import { getModelForClass, prop, ReturnModelType } from "@typegoose/typegoose";
-import { ForestType, SiteConditionRule } from "./forestType";
+import { ForestType} from "./forestType";
+import { SiteConditionRule } from "./siteConditionRule";
 import { Plant } from "./plants";
 
 
@@ -19,19 +20,19 @@ export class LittleForest{
     @prop()
     public name!: string;
 
-    @prop()
-    public siteConditions!: SiteConditionRule[];
+    @prop({type: [String, SiteConditionRule], required: true, default: []})
+    public siteConditions!: [String, SiteConditionRule][];
 
     @prop()
     public forestType!: ForestType;
 
-    @prop()
-    public plants!: [Plant, number];  //plant and how many are ordered
+    @prop({type: [Plant, Number], required: true, default: []})
+    public plants!: [Plant, number][];  //plant and how many are ordered
 
-    @prop()
-    public isPublic!: false;
+    @prop({type: Boolean, required: true, default: false})
+    public isPublic!: boolean;
 
-    @prop()
+    @prop({type: String, required: true, default: []})
     public images!: string[];
 
 }
