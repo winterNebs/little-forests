@@ -3,67 +3,53 @@ import { SiteConditionRule } from "src/database/schema/siteConditionRule";
 
 const router: Router = Router();
 //mockup
-const p1: Plant = {
-	commonName: "c1",
-	scientificName: "s1",
-	layer: "tree",
-	treeType: "deciduous",
-	maxHeight: "4",
-	advantages: [],
-	images: [],
-};
-const p2: Plant = {
-	commonName: "c2",
-	scientificName: "s2",
-	layer: "understory tree",
-	treeType: "conifer",
-	maxHeight: "2",
-	advantages: [],
-	images: [],
-};
-const p3: Plant = {
-	commonName: "c3",
-	scientificName: "s3",
-	layer: "canopy",
-	treeType: "evergreen",
-	maxHeight: "0",
-	advantages: [],
-	images: [],
-};
-const p4: Plant = {
-	commonName: "c4",
-	scientificName: "s4",
-	layer: "shrub",
-	treeType: "deciduous",
-	maxHeight: "69",
-	advantages: [],
-	images: [],
-};
 
-router.get("/plants/", (req: Request, res: Response) => {
-	res.send({ p1, p2, p3, p4 });
+const conditions: SiteConditionRule[] = [
+	{
+		name: "Slope",
+		allowedValues: ["None", "Gentle", "Moderate", "Steep"],
+		images: [],
+	},
+	{
+		name: "Soil Drainage",
+		allowedValues: [
+			"Very Rapid",
+			"Rapid",
+			"Well",
+			"Moderately Well",
+			"Imperfect",
+			"Poorly Drained",
+			"Very Poorly Drained",
+		],
+		images: [],
+	},
+	{
+		name: "Soil Moisture Regime",
+		allowedValues: ["Dry", "Fresh", "Moist", "Wet"],
+		images: [],
+	},
+	{
+		name: "Soil Texture",
+		allowedValues: [
+			"Sandy",
+			"Sandy Loam",
+			"Loam",
+			"Silty Loam",
+			"Clay Loam",
+			"Clay",
+			"Heavy Clay",
+		],
+		images: [],
+	},
+	{
+		name: "Depth to bedrock",
+		allowedValues: ["<16cm", "16 cm - 1m", ">1 meter"],
+		images: [],
+	},
+];
+
+router.get("/api/siteConditions/", (req: Request, res: Response) => {
+	res.send(conditions);
 });
-router.get("/plant/:id", (req: Request, res: Response) => {
-	res.send(p1);
-});
-
-router.get(
-	"/api/plants/",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send([]);
-	}
-);
-
-// need authentication
-router.post("/api/plant", (req: Request, res: Response, next: NextFunction) => {
-	res.send([]);
-});
-
-router.get(
-	"/api/plant/:id",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send({});
-	}
-);
 
 export default router;
