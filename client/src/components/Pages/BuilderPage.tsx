@@ -121,8 +121,8 @@ const pageContainers: ContainerValues[] = [
 export default function BuilderPage() {
 	const [conditions, setConditions]: [any, Function] = useState([]);
 	useEffect(() => {
-		console.log("test");
-		fetch("http://localhost:3000/api/siteConditions")
+		console.log(process.env);
+		fetch(process.env.REACT_APP_API + "/api/siteConditions")
 			.then((res) => res.json())
 			.then((data) => {
 				setConditions(data);
@@ -172,4 +172,3 @@ export default function BuilderPage() {
 	);
 }
 //export { BuilderPage as default };
-
