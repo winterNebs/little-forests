@@ -49,7 +49,7 @@ const conditions: SiteConditionRule[] = [
 ];
 
 router.get("/api/siteConditions/", (req: Request, res: Response) => {
-	res.send(conditions);
+	res.json(conditions);
 });
 
 export default router;
