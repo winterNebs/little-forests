@@ -6,6 +6,7 @@ import plants from "./routes/plants";
 import users from "./routes/users";
 import forests from "./routes/forestTypes";
 import little_forests from "./routes/littleForests";
+import site_conditions from "./routes/siteConditions";
 import { connect } from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -66,6 +67,7 @@ app.use("/", plants);
 app.use("/", users);
 app.use("/", forests);
 app.use("/", little_forests);
+app.use("/", site_conditions);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
