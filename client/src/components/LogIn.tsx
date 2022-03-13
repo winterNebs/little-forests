@@ -27,16 +27,37 @@ const theme = createTheme();
 
 const LogIn = (props: HookProps) => {
   let navigate = useNavigate();
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // Update the modal state 
-    props.setState(false);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    try {
+      // set the login url
+      let res = await fetch("http://127.0.0.1:3000/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      
+      let resJson = await res.json();
+      if (res.status === 200) {
+        setEmail("");
+        setPassword("");
+        setMessage("Login Successfully");
+      } else {
+        setMessage("Error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -67,6 +88,8 @@ const LogIn = (props: HookProps) => {
                   label="Username or Email"
                   name="user-or-email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -78,6 +101,8 @@ const LogIn = (props: HookProps) => {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
