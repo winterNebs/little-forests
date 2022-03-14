@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"build": "(cd client && npm ci && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ && cd ../api && npm ci)",
+		"build": "(cd client && npm ci && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ && cd ../api && npm ci && npm run build )",
 		"start": "(cd api && npm run start)"
 	}
 }
