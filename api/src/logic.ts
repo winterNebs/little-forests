@@ -1,4 +1,4 @@
-import { ForestType, SiteConditionRule } from "./database/schema/forestType";
+import { ForestType } from "./database/schema/forestType";
 
 export function recommend_plant(userSiteConditions: string[], modelForestTypes: ForestType[]) {
     
