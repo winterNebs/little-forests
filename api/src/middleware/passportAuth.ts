@@ -1,9 +1,9 @@
 import passport from "passport";
-import { User, UserClass } from "src/database/schema/user";
+import { User, UserClass } from "../database/schema/user";
 import { DocumentType } from "@typegoose/typegoose";
 import { Strategy } from "passport-local";
 import { Request, Response, NextFunction } from "express";
-import { getByCredentials } from "src/database/user";
+import { getByCredentials } from "../database/user";
 import logger from "@shared/Logger";
 
 passport.serializeUser(function (user: any, done: any): void {
