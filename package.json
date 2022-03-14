@@ -1,5 +1,9 @@
 {
-  "dependencies": {
-    "react-router-dom": "^6.2.1"
-  }
+	"dependencies": {
+		"react-router-dom": "^6.2.1"
+	},
+	"scripts": {
+		"build": "(cd client && npm ci && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ && cd ../api && npm ci)",
+		"start": "(cd api && npm run start)"
+	}
 }
