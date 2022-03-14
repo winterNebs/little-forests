@@ -36,7 +36,7 @@ const LogIn = (props: HookProps) => {
     event.preventDefault();
     try {
       // set the login url
-      let res = await fetch("http://127.0.0.1:3000/login", {
+      let res = await fetch(process.env.REACT_APP_API + "/login", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
