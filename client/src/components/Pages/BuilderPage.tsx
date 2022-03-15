@@ -1,3 +1,4 @@
+import React from 'react';
 import { Grid, Stack, Box } from "@mui/material";
 import ProgressStepper from "../ProgressStepper";
 import "@fontsource/roboto";
@@ -8,11 +9,14 @@ import ForestTypeContainer from '../ForestTypeContainer';
 // Create our steps
 const steps = ["Input", "Results", "Plan", "Plant"];
 
+
 // Interface for the values that will be within each container - for passing into our map
 export interface ContainerValues {
 	title: string;
 	description: string;
 	siteConditions: SiteConditionValues[];
+	radioHandler?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	groupSelectedValue?: string;
 }
 
 // Interface for site conditions
@@ -124,8 +128,29 @@ const pageContainers: ContainerValues[] = [
 	bedrockContainer,
 ];
 
+// Test Forest Type
+const testForest: ForestContainerValues = {
+    title: "Test Forest", 
+    description: "This is the test for short description of this forest type."
+}
+
+// List to hold the values of the current suggested forest list
+const currForestResults:ForestContainerValues[] = [testForest]
+
+// Constant to hold the currently selected site conditions
+const currSelectedConditions: string[] = []
+
 // Build our component
 export default function BuilderPage() {
+
+	// Use State to track the selected radio buttons
+	const [selectedValue, setSelectedValue] = React.useState("default");
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setSelectedValue(event.target.value);
+	};
+
+	// Retrieve the site conditions from React
 	const [conditions, setConditions]: [any, Function] = useState([]);
 	useEffect(() => {
 		console.log(process.env);
@@ -163,10 +188,13 @@ export default function BuilderPage() {
                 <Grid item xs={8}>
                     <Stack>
                         {pageContainers.map( displayContainer =>(
-                            <ConditionContainer 
+							<ConditionContainer 
+							key={displayContainer.title}
                             title={displayContainer.title} 
                             description={displayContainer.description} 
-                            siteConditions={displayContainer.siteConditions}
+							siteConditions={displayContainer.siteConditions}
+							radioHandler={handleChange}
+							groupSelectedValue={selectedValue}
                             />
                         ))}
                     </Stack>
