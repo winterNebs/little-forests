@@ -3,6 +3,7 @@ import ProgressStepper from "../ProgressStepper";
 import "@fontsource/roboto";
 import ConditionContainer from "../ConditionContainer";
 import { useState, useEffect } from "react";
+import ForestTypeContainer from '../ForestTypeContainer';
 
 // Create our steps
 const steps = ["Input", "Results", "Plan", "Plant"];
@@ -21,7 +22,9 @@ export interface SiteConditionValues {
 }
 
 export interface ForestContainerValues {
-
+	title: string;
+	description: string;
+	imageURL?: string;
 }
 
 // Create a list version of Site Condition Values
