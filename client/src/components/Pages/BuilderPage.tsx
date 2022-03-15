@@ -20,6 +20,10 @@ export interface SiteConditionValues {
 	imageURL?: string;
 }
 
+export interface ForestContainerValues {
+
+}
+
 // Create a list version of Site Condition Values
 interface SiteConditionList extends Array<SiteConditionValues> {}
 
