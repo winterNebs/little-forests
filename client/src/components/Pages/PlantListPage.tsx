@@ -46,4 +46,5 @@ function PlantListPage() {
   )
 }
 
-export default PlantListPage
+export default PlantListPage;
+

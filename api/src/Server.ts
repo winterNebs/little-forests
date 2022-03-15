@@ -6,6 +6,7 @@ import plants from "./routes/plants";
 import users from "./routes/users";
 import forests from "./routes/forestTypes";
 import little_forests from "./routes/littleForests";
+import site_conditions from "./routes/siteConditions";
 import { connect } from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -16,6 +17,7 @@ import "express-async-errors";
 import logger from "@shared/Logger";
 import passport from "passport";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
+import path from "path";
 
 const app = express();
 
@@ -32,13 +34,14 @@ connect(mongoDB)
 		logger.info("Connected to database");
 	});
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "build")));
 
 // Show routes called in console during development
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"));
+	app.use(cors());
 }
 
 // Security
@@ -66,6 +69,10 @@ app.use("/", plants);
 app.use("/", users);
 app.use("/", forests);
 app.use("/", little_forests);
+app.use("/", site_conditions);
+app.use("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 app.use(notFoundHandler);
 app.use(errorHandler);
