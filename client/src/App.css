@@ -7,3 +7,16 @@
   width: 300;
   background-color: white;
 }
+
+.condition-thumbnail {
+  width: 8vw;
+  margin-bottom: 1vw;
+  align-items: center;
+}
+
+.forest-thumbnail {
+  width: 13vw;
+  height: 25vh;
+  padding-top: 4vh;
+  border-radius: 20%;
+}

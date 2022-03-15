@@ -1,14 +1,9 @@
 import * as React from "react";
 import { Box, Grid, Paper, Radio, Stack } from "@mui/material";
 import { ContainerValues } from "./Pages/BuilderPage";
+import placeholderImage from '../placeholder.jpg';
 
 const ConditionContainer = (props: ContainerValues) => {
-	// Use State to track the selected radio buttons
-	const [selectedValue, setSelectedValue] = React.useState("default");
-
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setSelectedValue(event.target.value);
-	};
 
 	return (
 		<>
@@ -27,22 +22,26 @@ const ConditionContainer = (props: ContainerValues) => {
 					</Grid>
 
 					{props.siteConditions.map((condition) => (
-						<Grid item xs={3}>
-							<Stack spacing={-2}>
+						<Grid key={condition.subtitle} item xs={3} >
+							<Stack spacing={-0.5}>
 								{typeof condition.imageURL !== "undefined" ? (
 									<>
-										<img src={condition.imageURL} />
+										<img className="condition-thumbnail" src={condition.imageURL} />
 										<h4>{condition.subtitle}</h4>
 									</>
 								) : (
-									<h4>{condition.subtitle}</h4>
+									<>
+										<img className="condition-thumbnail" src={placeholderImage} />
+										<h4>{condition.subtitle}</h4>
+									</>
+									
 								)}
 								<Radio
 									checked={
-										selectedValue ===
+										props.groupSelectedValue ===
 										(condition.subtitle as string)
 									}
-									onChange={handleChange}
+									onChange={props.radioHandler}
 									value={condition.subtitle}
 									name={props.title}
 									sx={{ zIndex: 1050 }}
