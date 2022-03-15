@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, Box } from "@mui/material";
 import ProgressStepper from "../ProgressStepper";
 import "@fontsource/roboto";
 import ConditionContainer from "../ConditionContainer";
@@ -134,40 +134,72 @@ export default function BuilderPage() {
 
 	return (
 		<>
-			<Grid
-				container
-				style={{ marginTop: "10vh", marginBottom: "20vh" }}
-				justifyContent="center"
-				alignItems="stretch"
-				direction="row"
-			>
-				<Grid item xs={12}>
-					<h2>Little Forest Builder</h2>
-				</Grid>
+			<Grid 
+            container
+            style = {{ marginTop: '10vh', marginBottom: '20vh'}}
+            justifyContent = "center"
+            alignItems = "stretch"
+            direction = "row"
+            >
+                <Grid item xs={12}>
+                    <h2>Little Forest Builder</h2>
+                </Grid>
+                
+                <Grid item xs={12}>
+                    <ProgressStepper />
+                </Grid> 
+                <Grid item xs={3} />
+                <Grid item xs={6} />
+                <Grid item xs={3} />
 
-				<Grid item xs={12}>
-					<ProgressStepper />
-				</Grid>
-				<Grid item xs={3} />
-				<Grid item xs={6}></Grid>
-				<Grid item xs={3} />
-
-				<Grid item xs={8}>
-					<Stack>
-						{conditions.map((displayContainer: any) => (
-							<ConditionContainer
-								title={displayContainer.name}
-								description={"Description"}
-								siteConditions={displayContainer.allowedValues.map(
-									function (v: any) {
-										return { subtitle: v };
-									}
-								)}
-							/>
-						))}
-					</Stack>
-				</Grid>
-			</Grid>
+                <Grid item xs={0.4} />
+                <Grid item xs={8}>
+                    <Stack>
+                        {pageContainers.map( displayContainer =>(
+                            <ConditionContainer 
+                            title={displayContainer.title} 
+                            description={displayContainer.description} 
+                            siteConditions={displayContainer.siteConditions}
+                            />
+                        ))}
+                    </Stack>
+                </Grid>
+                <Grid item xs={2}>
+                    <Box
+                      sx = {{
+                          overflowY: "scroll",
+                          backgroundColor: "#e0e0e0",
+                          marginRight: "6vw",
+                          marginTop: "5vh", 
+                          marginLeft: "1vw",
+                          height: "60vh",
+                          position: "fixed"
+                      }}
+                    >
+                    { currForestResults.length === 0 ? (
+                            <>  
+                                <h3>No inputs selected, results will be displayed here as you select site conditions!</h3>
+                            </>
+                        ) : (
+                            <>
+                            
+                                <Stack>
+                                    {currForestResults.map ( displayResult =>(
+                                        <ForestTypeContainer 
+                                        title={displayResult.title} 
+                                        description = {displayResult.description}
+                                        />
+                                        )
+                                    
+                                    )}
+                                </Stack>
+                            </>
+                        )
+                    }
+                    </Box>
+                </Grid>
+                <Grid item xs={1} />
+            </Grid>
 		</>
 	);
 }
