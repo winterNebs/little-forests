@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Grid, Paper, Radio, Stack } from "@mui/material";
 import { ContainerValues } from "./Pages/BuilderPage";
+import placeholderImage from '../placeholder.jpg';
 
 const ConditionContainer = (props: ContainerValues) => {
 
@@ -21,15 +22,19 @@ const ConditionContainer = (props: ContainerValues) => {
 					</Grid>
 
 					{props.siteConditions.map((condition) => (
-						<Grid key={condition.subtitle} item xs={3}>
-							<Stack spacing={-2}>
+						<Grid key={condition.subtitle} item xs={3} >
+							<Stack spacing={-0.5}>
 								{typeof condition.imageURL !== "undefined" ? (
 									<>
-										<img src={condition.imageURL} />
+										<img className="condition-thumbnail" src={condition.imageURL} />
 										<h4>{condition.subtitle}</h4>
 									</>
 								) : (
-									<h4>{condition.subtitle}</h4>
+									<>
+										<img className="condition-thumbnail" src={placeholderImage} />
+										<h4>{condition.subtitle}</h4>
+									</>
+									
 								)}
 								<Radio
 									checked={

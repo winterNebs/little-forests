@@ -237,5 +237,4 @@ export default function BuilderPage() {
             </Grid>
 		</>
 	);
-}
-//export { BuilderPage as default };
+};

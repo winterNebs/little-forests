@@ -11,6 +11,7 @@
 .condition-thumbnail {
   width: 8vw;
   margin-bottom: 1vw;
+  align-items: center;
 }
 
 .forest-thumbnail {
