@@ -37,3 +37,11 @@ create a folder and the run the command:
 ```
 mongod -dbpath <FOLDER NAME>
 ```
+## Build 
+TODO: Automate it
+
+```
+cd client
+npm run build
+```
+Copy `build` to `api\src`
