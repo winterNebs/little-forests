@@ -2,6 +2,7 @@ import { Grid, Stack } from "@mui/material";
 import ProgressStepper from "../ProgressStepper";
 import "@fontsource/roboto";
 import ConditionContainer from "../ConditionContainer";
+import AccountHeader from "../common/AccountHeader";
 import { useState, useEffect } from "react";
 
 // Create our steps
@@ -117,7 +118,6 @@ const pageContainers: ContainerValues[] = [
 	bedrockContainer,
 ];
 
-// Build our component
 export default function BuilderPage() {
 	const [conditions, setConditions]: [any, Function] = useState([]);
 	useEffect(() => {
@@ -171,4 +171,3 @@ export default function BuilderPage() {
 		</>
 	);
 }
-//export { BuilderPage as default };
