@@ -3,6 +3,7 @@ import { Grid, Stack, Box } from "@mui/material";
 import ProgressStepper from "../ProgressStepper";
 import "@fontsource/roboto";
 import ConditionContainer from "../ConditionContainer";
+import AccountHeader from "../common/AccountHeader";
 import { useState, useEffect } from "react";
 import ForestTypeContainer from '../ForestTypeContainer';
 
@@ -237,4 +238,5 @@ export default function BuilderPage() {
             </Grid>
 		</>
 	);
+
 };

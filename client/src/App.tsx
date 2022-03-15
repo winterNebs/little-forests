@@ -8,9 +8,15 @@ import { Footer } from './components/common';
 import HomePage from './components/Pages/HomePage';
 import BuilderPage from './components/Pages/BuilderPage';
 import AccountDashboard from './components/Pages/AccountDashboard';
+import AdminDashboard from './components/Pages/AdminDashboard';
 import ForestResultsPage from './components/Pages/ForestResultsPage';
 import ForestResultsList from './components/Pages/ForestResultsList';
 import PlantListPage from './components/Pages/PlantListPage';
+import EditPlants from './components/EditPlants';
+import EditForests from './components/EditForests';
+import GenericEditList from './components/GenericEditList';
+import GenericEditPage from './components/GenericEditPage';
+
 
 // Consistent theme for the website
 const theme = createTheme({
@@ -26,18 +32,23 @@ const App = () => {
     <ThemeProvider theme={theme}>
 
       <div className="App">
-        <Header />
+        
 
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/builder' element={<BuilderPage />} />
           <Route path="/dashboard" element={<AccountDashboard />} />
+          <Route path="/dashboard/admin" element={<AdminDashboard />} />
           <Route path="/results-list" element={<ForestResultsList />} />
           <Route path="/results-page" element={<ForestResultsPage />} />
           <Route path="/plant-list" element={<PlantListPage />} />
+          <Route path="/edit-plants" element={<EditPlants />} />
+          <Route path="/edit-forests" element={<EditForests />} />
+          <Route path="/edit-list" element={<GenericEditList />} />
+          <Route path="/edit-page" element={<GenericEditPage />} />
         </Routes>
 
-        <Footer />
+        
       </div>
     </ThemeProvider>
   );

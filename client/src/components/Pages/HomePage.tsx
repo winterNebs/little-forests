@@ -3,6 +3,8 @@ import { Grid, Button, Modal, Box, Paper } from '@mui/material';
 import SecondaryItem from '../SecondaryItem';
 import SignUp from '../SignUp';
 import '../../App.css';
+import { Header, Footer } from '../common';
+
 
 // Component to show the home page
 const HomePage = () => {
@@ -22,6 +24,7 @@ const HomePage = () => {
 
     return (
         <div>
+        <Header />
 
         <Grid 
         container
@@ -83,7 +86,7 @@ const HomePage = () => {
         </Grid>
             
 
-        
+        <Footer />
         </div>
         
     )
