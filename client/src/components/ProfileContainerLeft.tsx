@@ -82,7 +82,7 @@ export default function ProfileContainerLeft() {
           <Box sx={{ width: 300, height: 400, p: 5, border: "1px dashed grey", borderRadius: 5 }}>
             <br /><br /><br /><br /><br />
             <AddCircleIcon sx={{ fontSize: 50, color: 'primary.main' }} /> <br />
-            <Button component={Link} to='/builder'>Create New Project</Button>
+            <Button component={Link} to='/select'>Create New Project</Button>
           </Box>
         </Box>
       </Main>
