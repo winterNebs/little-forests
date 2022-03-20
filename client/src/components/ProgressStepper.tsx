@@ -3,7 +3,7 @@ import { Box, Stepper, Step, StepLabel, Button, Grid, Fab } from '@mui/material'
 import { ArrowBack, ArrowForward } from "@mui/icons-material"
 import Typography from '@mui/material/Typography';
 
-const steps = ['Input', 'Results', 'Plan', 'Plant'];
+const steps = ['Input', 'Plan', 'Plant'];
 
 const ProgressStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);

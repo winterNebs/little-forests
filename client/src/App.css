@@ -7,3 +7,38 @@
   width: 300;
   background-color: white;
 }
+
+.condition-thumbnail {
+  width: 8vw;
+  margin-bottom: 1vw;
+  align-items: center;
+}
+
+.forest-thumbnail {
+  width: 13vw;
+  height: 25vh;
+  padding-top: 4vh;
+  border-radius: 20%;
+}
+
+.small-image {
+  width: 8vw;
+}
+
+.selector {
+  padding-left: 10vw;
+  width: 2vw;
+}
+
+.arrow-pad {
+  padding-left: 0.40vw;
+}
+
+.box-header {
+  padding-right: 10vw;
+}
+
+.screen-padded {
+  padding-top: 6vh;
+  padding-bottom: 4vh;
+}
