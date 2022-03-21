@@ -100,7 +100,7 @@ router.post(
 					req.session.cookie.expires = undefined;
 				}
 			}
-			res.redirect("/");
+			res.sendStatus(200);
 		} else {
 			res.status(400).send("Invalid Email/Password");
 		}
