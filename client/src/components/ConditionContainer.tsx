@@ -3,7 +3,27 @@ import { Box, Grid, Paper, Radio, Stack } from "@mui/material";
 import { ContainerValues } from "./Pages/BuilderPage";
 import placeholderImage from '../placeholder.jpg';
 
-const ConditionContainer = (props: ContainerValues) => {
+function ConditionContainer(props: ContainerValues) {
+
+	const [containerValue, setContainerValue] = React.useState("default");
+
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		// We want to append our container value to the state in the parent
+		setContainerValue(event.target.value);
+
+		// This if statement will be removed - it is here for a dumb reason, message me as to why
+		if (props.setSelectedValue) {
+			// Temporarily store the passed condition value list 
+			const oldList = props.selectedValues;
+
+			// Update the list using the concat() function 
+			const newList = (oldList: string | any[]) => oldList.concat(containerValue);
+			
+			// Update the parent value with the concatenated list 
+			props.setSelectedValue(newList);
+		}
+		
+	}
 
 	return (
 		<>
@@ -38,10 +58,10 @@ const ConditionContainer = (props: ContainerValues) => {
 								)}
 								<Radio
 									checked={
-										props.groupSelectedValue ===
+										containerValue ===
 										(condition.subtitle as string)
 									}
-									onChange={props.radioHandler}
+									onChange={handleChange}
 									value={condition.subtitle}
 									name={props.title}
 									sx={{ zIndex: 1050 }}

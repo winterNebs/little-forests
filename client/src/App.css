@@ -20,3 +20,25 @@
   padding-top: 4vh;
   border-radius: 20%;
 }
+
+.small-image {
+  width: 8vw;
+}
+
+.selector {
+  padding-left: 10vw;
+  width: 2vw;
+}
+
+.arrow-pad {
+  padding-left: 0.40vw;
+}
+
+.box-header {
+  padding-right: 10vw;
+}
+
+.screen-padded {
+  padding-top: 6vh;
+  padding-bottom: 4vh;
+}

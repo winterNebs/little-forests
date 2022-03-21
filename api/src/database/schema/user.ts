@@ -32,7 +32,6 @@ export class ResetToken {
 	}
 	next();
 })
-
 export class UserClass {
 	@prop({
 		required: true,
@@ -47,9 +46,8 @@ export class UserClass {
 		unique: true,
 	})
 	public email!: string;
-	@prop({type: LittleForest, required: true, default: []})
-	public ownedForests!: LittleForest[];
-
+	@prop({ type: mongoose.Types.ObjectId, required: true, default: [] })
+	public ownedForests!: mongoose.Types.ObjectId[];
 
 	@prop({ required: true, minlength: 7 })
 	public password!: string;

@@ -12,10 +12,12 @@ import AdminDashboard from './components/Pages/AdminDashboard';
 import ForestResultsPage from './components/Pages/ForestResultsPage';
 import ForestResultsList from './components/Pages/ForestResultsList';
 import PlantListPage from './components/Pages/PlantListPage';
+import PlanPage from './components/Pages/PlanPage';
 import EditPlants from './components/EditPlants';
 import EditForests from './components/EditForests';
 import GenericEditList from './components/GenericEditList';
 import GenericEditPage from './components/GenericEditPage';
+
 
 
 // Consistent theme for the website
@@ -36,7 +38,8 @@ const App = () => {
 
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/builder' element={<BuilderPage />} />
+          <Route path='/select' element={<BuilderPage />} />
+          <Route path='/plan' element={<PlanPage />} />
           <Route path="/dashboard" element={<AccountDashboard />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
           <Route path="/results-list" element={<ForestResultsList />} />

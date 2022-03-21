@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 
 const ForestTypeContainer = (props: ForestContainerValues) => {
 
+    // Store title in case we need to return forest type
+    const title = props.title;
+
     return (
         <>
             <Stack 
@@ -30,12 +33,19 @@ const ForestTypeContainer = (props: ForestContainerValues) => {
                 spacing={2}
                 justifyContent="center"
                 alignItems="center"
-                >
+                >s
                     <Grid item>
                         <Button component={Link} to='/results-page' variant="contained">More Info</Button>
                     </Grid>
                     <Grid item>
-                        <Button component={Link} to='/plant-list' variant="contained">Select</Button>
+                        { props.setForestValue ? (
+                            <Button variant="contained" onClick={props.setForestValue()} value={title}>Select</Button>
+                        ) : (
+                            <Button variant="contained" disabled>Select</Button>
+                            )
+                        
+                    }
+                        
                     </Grid>
                 </Grid>
                 <Divider light />
