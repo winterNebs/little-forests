@@ -13,18 +13,6 @@ import passport from "passport";
 
 const router: Router = Router();
 
-router.get("/register", (req: Request, res: Response) => {
-	res.send("Register");
-});
-
-router.get("/login", (req: Request, res: Response) => {
-	res.send("Login");
-});
-
-router.get("/forgot", (req: Request, res: Response) => {
-	res.send("Forgot pass");
-});
-
 router.post(
 	"/api/users/logout",
 	(req: Request, res: Response, next: NextFunction) => {
@@ -54,17 +42,47 @@ router.get("/api/users/loggedin", isLoggedIn, (req: Request, res: Response) => {
 // Proper Error Messages
 router.post(
 	"/api/users/register",
-	(req: Request, res: Response, next: NextFunction) => {
+	async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			if (req.body.name && req.body.email && req.body.password) {
-				createUser(req.body);
-				res.redirect("/login");
+				await createUser(req.body);
+				res.sendStatus(201);
 			} else {
 				res.sendStatus(400);
 			}
-		} catch (err) {
-			logger.warn(err);
-			res.status(500).send(err);
+		} catch (err: any) {
+			if (err.name === "MongoError" && err.code === 11000) {
+				let errmsg: string = "";
+				for (let i in err.keyValue) {
+					if (err.keyValue.hasOwnProperty(i)) {
+						errmsg += i + " is already taken \n";
+					}
+				}
+				res.status(400).send(errmsg);
+			} else if (err.name === "ValidationError") {
+				let errmsg: string = "";
+				for (let i in err.errors) {
+					if (err.errors.hasOwnProperty(i)) {
+						switch (i) {
+							case "password":
+								errmsg +=
+									"Password must be at least 7 characters\n";
+								break;
+							case "name":
+								errmsg +=
+									"Name must be between 3-20 characters\n";
+								break;
+							case "email":
+								errmsg += "Invalid Email\n";
+								break;
+						}
+					}
+				}
+				res.status(422).send(errmsg);
+			} else {
+				logger.warn(err);
+				res.status(500).send(err);
+			}
 		}
 	}
 );
