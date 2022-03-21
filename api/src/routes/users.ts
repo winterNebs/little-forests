@@ -45,6 +45,9 @@ router.post(
 	}
 );
 
+router.get("/api/users/loggedin", isLoggedIn, (req: Request, res: Response) => {
+	res.sendStatus(200);
+});
 // TODO:
 // Email validation
 // Username validation
