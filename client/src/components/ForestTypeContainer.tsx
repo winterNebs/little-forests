@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Grid, Button, Stack, Divider } from '@mui/material';
 import { ForestContainerValues } from './Pages/BuilderPage';
 import placeholderImage from '../placeholder.jpg';
+import { Link } from 'react-router-dom';
 
 const ForestTypeContainer = (props: ForestContainerValues) => {
 
@@ -31,10 +32,10 @@ const ForestTypeContainer = (props: ForestContainerValues) => {
                 alignItems="center"
                 >
                     <Grid item>
-                        <Button variant="contained">More Info</Button>
+                        <Button component={Link} to='/results-page' variant="contained">More Info</Button>
                     </Grid>
                     <Grid item>
-                        <Button variant="contained">Select</Button>
+                        <Button component={Link} to='/plant-list' variant="contained">Select</Button>
                     </Grid>
                 </Grid>
                 <Divider light />

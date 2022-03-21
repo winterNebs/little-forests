@@ -167,6 +167,7 @@ export default function BuilderPage() {
 
 	return (
 		<>
+			<AccountHeader />
 			<Grid 
             container
             style = {{ marginTop: '10vh', marginBottom: '20vh'}}
