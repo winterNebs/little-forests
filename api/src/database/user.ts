@@ -59,6 +59,6 @@ export async function useResetToken(token: string, password: string) {
 	}
 }
 
-export function getUserForests(){
-	return User.find({}, {ownedForests: 1}).lean<UserClass>().exec();
+export function getUserForests() {
+	return User.find({}, { ownedForests: 1 }).lean<UserClass>().exec();
 }

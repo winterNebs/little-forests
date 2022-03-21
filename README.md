@@ -1,11 +1,34 @@
 # Little Forests
 
+## Production
+
+### Production build and run
+in the root folder run:
+``` 
+npm run build
+npm run start 
+```
+
+### env variables
+the following environment variables need to be set:
+```
+DATABASE=<Mongodb database URL>
+REACT_APP_API=
+```
+**Note** REACT_APP_API is left blank intentionally
+
+### CI with heroku or similar platforms:
+Simply use github integration and set the main branch of this repository as the target.
+
+`npm run build` then `npm run start` should be ran automatically
+
+## Development 
 
 Server boilerplate generated from: https://www.npmjs.com/package/express-generator-typescript
 
 Client boilerplate generated from: https://create-react-app.dev/
 
-## Getting started:
+### Getting started:
 
 install node 16.13.1 (I suggest using [nvm](https://github.com/nvm-sh/nvm) for linux or [nvm-windows](https://github.com/coreybutler/nvm-windows) for windows)
 ```
@@ -21,7 +44,7 @@ cd ..
 cd api
 npm i
 ```
-## Run
+### Run
 client
 ```
 cd client
@@ -37,8 +60,7 @@ create a folder and the run the command:
 ```
 mongod -dbpath <FOLDER NAME>
 ```
-## Build 
-TODO: Automate it
+### Build 
 
 ```
 cd client
