@@ -13,6 +13,15 @@ import passport from "passport";
 
 const router: Router = Router();
 
+router.get("/dashboard", (req: Request, res: Response, next: NextFunction) => {
+	console.log("test");
+	if (req.isAuthenticated()) {
+		next();
+	} else {
+		res.redirect("/");
+	}
+});
+
 router.post(
 	"/api/users/logout",
 	(req: Request, res: Response, next: NextFunction) => {
@@ -33,8 +42,12 @@ router.post(
 	}
 );
 
-router.get("/api/users/loggedin", isLoggedIn, (req: Request, res: Response) => {
-	res.sendStatus(200);
+router.get("/api/users/loggedin", (req: Request, res: Response) => {
+	if (req.isAuthenticated()) {
+		res.sendStatus(200);
+	} else {
+		res.sendStatus(401);
+	}
 });
 // TODO:
 // Email validation

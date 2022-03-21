@@ -71,6 +71,8 @@ export default function AccountHeader() {
 			.then((res) => {
 				if (res.status === 200) {
 					setAccount("loggedin");
+				} else {
+					setAccount("Not logged in");
 				}
 			})
 			.catch(console.log);
