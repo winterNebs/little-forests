@@ -72,6 +72,7 @@ const LogIn = (props: HookProps) => {
 				setMessage("Login Successfully");
 				setIsLoggedIn(true);
 				console.log("Logged in");
+				navigate("/dashboard");
 			} else {
 				console.log(await res.text());
 				setMessage("Log in failed, please try again.");
