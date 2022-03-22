@@ -6,6 +6,7 @@ import ConditionContainer from "../ConditionContainer";
 import AccountHeader from "../common/AccountHeader";
 import { useState, useEffect } from "react";
 import ForestTypeContainer from '../ForestTypeContainer';
+import { FenceTwoTone } from '@mui/icons-material';
 
 // Interface for the values that will be within each container - for passing into our map
 export interface ContainerValues {
@@ -28,16 +29,44 @@ export interface ForestContainerValues {
 }
 
 // Create a list version of Site Condition Values
-interface SiteConditionList extends Array<SiteConditionValues> {}
-
-// List to hold the values of the current suggested forest list
-const currForestResults:ForestContainerValues[] = []
+interface SiteConditionList extends Array<SiteConditionValues> {}let currForestResults:ForestContainerValues[] = []
 
 // Build our component
 export default function SelectPage() {
 
 	// Use State to track the selected radio buttons
-	const [selectedConditionValues, setSelectedValue] = useState([]);
+	const [selectedConditionValues, setSelectedValue] = useState<string[]>([]);
+
+	// Use State to track the selection of radio buttons 
+	const handleRadioSelect = (key: string, value: string) => {
+		// If the list is empty, then enter the first value automatically 
+		if (selectedConditionValues.length === 0) {
+			// Add the key then the value to the list 
+			selectedConditionValues.push(key);
+			selectedConditionValues.push(value);
+		}
+		// If there is any length to the selected values
+		else {
+			// Iterate through the list 
+			for (var loopCount = 0; loopCount < selectedConditionValues.length; loopCount++) {
+				// Check if the value matches the key 
+				if (key === selectedConditionValues[loopCount]) {
+					// Update the next value in the list 
+					selectedConditionValues[loopCount + 1] = value;
+				}
+			}
+		}
+
+		// After we have created/updated our list, we then request the little forests that match the conditions
+		fetch(process.env.REACT_APP_API + "/api/forests")
+		.then((res) => res.json())
+			.then((data) => {
+				currForestResults = data;
+				console.log(data);
+				console.log(conditions);
+			})
+			.catch(console.log);
+	}
 
 	// Retrieve the site conditions from React
 	const [conditions, setConditions]: [any, Function] = useState([]);
@@ -58,6 +87,9 @@ export default function SelectPage() {
 	// Function that will update the selected button
 	const handleForestSelect = (forestSelected: string) => {
 		setSelectedForestType(forestSelected);
+
+		// Redirect to the planning page with this data selected
+		
 	}
 
 	return (
@@ -113,6 +145,13 @@ export default function SelectPage() {
 							</>
 						) : (
 								<>
+									{conditions.map((forestType: { name: string; }) =>(
+										<ForestTypeContainer 
+										key={forestType.name}
+										name={forestType.name} 
+										setForestValue={handleForestSelect}
+										/>
+									))}
 								</>
 						)
 					}

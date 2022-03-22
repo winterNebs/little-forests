@@ -5,11 +5,6 @@ import AccountHeader from '../common/AccountHeader';
 // Build our component 
 export default function PlanPage() {
 
-
-    // API FUNCTIONALITY NEEDED ---> LOAD IN DATABASE INFORMATION FOR PLANTS SO THEY CAN BE ADDED TO THE LIST
-
-    // Question for planning - do we have a minimum required number? What restrictions are there on the selections? 
-
     // We need to track the list of selected plants for each category and their related quantity
     const treeList = [];
     const shrubList = [];
