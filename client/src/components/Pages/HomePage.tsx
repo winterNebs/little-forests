@@ -66,7 +66,7 @@ const HomePage = () => {
                         borderRadius: '25px',
                         marginLeft: '40vw'
                     }}>
-                        <SignUp />
+                        <SignUp setState={setOpen} modalState={open} />
                     </Box>
                     
                 </Modal>

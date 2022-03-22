@@ -46,6 +46,7 @@ const LogIn = (props: HookProps) => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const [message, setMessage] = React.useState("");
+	const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -69,10 +70,12 @@ const LogIn = (props: HookProps) => {
 				setEmail("");
 				setPassword("");
 				setMessage("Login Successfully");
+				setIsLoggedIn(true);
 				console.log("Logged in");
+				navigate("/dashboard");
 			} else {
 				console.log(await res.text());
-				setMessage("Error");
+				setMessage("Log in failed, please try again.");
 			}
 		} catch (err) {
 			console.log(err);
@@ -140,6 +143,7 @@ const LogIn = (props: HookProps) => {
 						>
 							Log In
 						</Button>
+						{isLoggedIn? props.setState(false): <p>{message}</p>}
 						<Grid container justifyContent="flex-end">
 							<Grid item>
 								<Link href="#" variant="body2">

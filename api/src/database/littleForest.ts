@@ -8,6 +8,10 @@ export function createLittleForest(littleForest: LittleForest) {
 	return LittleForests.create(littleForest);
 }
 
+export function getLFByID(id: String){
+	return LittleForests.findById(id).lean<LittleForest>().exec();
+}
+
 export function getLFByForestType(type: ForestType) {
 	return LittleForests.find(type).lean<LittleForest>().exec();
 }

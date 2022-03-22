@@ -29,13 +29,19 @@ function Copyright(props: any) {
 	);
 }
 
+interface HookProps {
+	modalState: boolean;
+	setState: any;
+}
+
 const theme = createTheme();
 
-export default function SignUp() {
+const SignUp = (props: HookProps) => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 	const [username, setUsername] = React.useState("");
 	const [message, setMessage] = React.useState("");
+	const [isSignedUp, setIsSignedUp] = React.useState(false);
 
 	const handleSubmit = async function (
 		event: React.FormEvent<HTMLFormElement>
@@ -62,10 +68,11 @@ export default function SignUp() {
 				setEmail("");
 				setPassword("");
 				setMessage("Sign up Successfully");
+				setIsSignedUp(true);
 				console.log("signed up");
 			} else {
 				console.log(await res.text());
-				setMessage("Error");
+				setMessage("Sign up failed, please try again.");
 			}
 		} catch (err) {
 			console.log(err);
@@ -147,6 +154,7 @@ export default function SignUp() {
 						>
 							Sign Up
 						</Button>
+						{isSignedUp? props.setState(false): <p>{message}</p>}
 						<Grid container justifyContent="flex-end">
 							<Grid item>
 								<Link href="#" variant="body2">
@@ -161,3 +169,5 @@ export default function SignUp() {
 		</ThemeProvider>
 	);
 }
+
+export { SignUp as default };

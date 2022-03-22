@@ -17,8 +17,13 @@ router.get("/forests/:id", (req: Request, res: Response) => {
 
 router.get(
 	"/api/forests/",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send([]);
+	async (req: Request, res: Response, next: NextFunction) => {
+		try{
+			res.send(await getAllForestTypes());
+		}
+		catch{
+			res.sendStatus(500);
+		}
 	}
 );
 
@@ -32,8 +37,13 @@ router.post(
 
 router.get(
 	"/api/forest/:id",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send({});
+	async (req: Request, res: Response, next: NextFunction) => {
+		try{
+			res.send(await getForestTypeByID(req.params.id));
+		}
+		catch{
+			res.sendStatus(404);
+		}
 	}
 );
 export default router;
