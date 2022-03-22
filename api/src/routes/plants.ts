@@ -41,17 +41,15 @@ const p4: Plant = {
 	images: [],
 };
 
-router.get("/plants/", (req: Request, res: Response) => {
-	res.send({ p1, p2, p3, p4 });
-});
-router.get("/plant/:id", (req: Request, res: Response) => {
-	res.send(p1);
-});
-
 router.get(
 	"/api/plants/",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send({ p1, p2, p3, p4 });
+	async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			res.send(await getAllPlants());
+		}
+		catch (err: any) {
+			res.sendStatus(500);
+		}
 	}
 );
 
@@ -62,8 +60,13 @@ router.post("/api/plant", (req: Request, res: Response, next: NextFunction) => {
 
 router.get(
 	"/api/plant/:id",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send({});
+	async (req: Request, res: Response, next: NextFunction) => {
+		try{
+			res.send(await getPlantById(req.params.id));
+		}
+		catch{
+			res.sendStatus(404);
+		}
 	}
 );
 
