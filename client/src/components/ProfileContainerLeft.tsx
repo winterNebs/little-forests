@@ -4,7 +4,7 @@ import { Box, Drawer, CssBaseline, Toolbar, Typography, Button } from '@mui/mate
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link } from 'react-router-dom';
 import AccountHeader from './common/AccountHeader'; 
-
+import { EditText, EditTextarea } from 'react-edit-text';
 
 const drawerWidth = 250;
 
@@ -28,6 +28,12 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 }));
 
 export default function ProfileContainerLeft() {
+
+  const [name, setName] = React.useState("FirstName, LastName");
+  const [bio, setBio] = React.useState(
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \
+    tempor incididunt ut labore et dolore magna aliqua. "
+    );
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -59,13 +65,24 @@ export default function ProfileContainerLeft() {
           />
           <Box sx={{ width: 200, height: 260, m:3 }}>
             <Typography align="left" variant="body1">
-              <b>First Name, Last Name </b>
-              <br/><br/>
-              <b>Bio:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. 
+            <div style={{whiteSpace: 'nowrap'}}>
+                <EditText
+                  name='name'
+                  value={name}
+                  onChange={setName}
+                />
+              </div>
+              <br/>
+              <strong>
+                <label style={{ paddingTop: '2px' }}>Bio:</label>
+              </strong>
+              <EditTextarea
+                name='bio'
+                value={bio}
+                onChange={setBio}
+              />
               <br/><br/>
             </Typography>
-            <Button variant="contained">Edit Profile</Button>
           </Box>
       </Drawer>
 
