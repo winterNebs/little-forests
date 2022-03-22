@@ -4,8 +4,8 @@ import "./Footer.css";
 function Footer() {
   return (
     <section className="footer">
-      <section className="footer-phone">(999)999-9999</section>
-      <section className="footer-email">name@email.com</section>
+      <section className="footer-phone">Phone: (999)999-9999</section>
+      <section className="footer-email">Email: support@littleforest.com</section>
     </section>
   );
 }

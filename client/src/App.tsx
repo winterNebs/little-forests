@@ -17,6 +17,12 @@ import EditPlants from './components/EditPlants';
 import EditForests from './components/EditForests';
 import GenericEditList from './components/GenericEditList';
 import GenericEditPage from './components/GenericEditPage';
+import BrowseForests from './components/Pages/BrowseForests';
+import BrowsePlants from './components/Pages/BrowsePlants';
+import AboutPage from './components/Pages/AboutPage';
+import ContactPage from './components/Pages/ContactPage';
+import BrowseForestPage from './components/Pages/BrowseForestPage';
+import BrowsePlantList from './components/Pages/BrowsePlantList';
 
 
 
@@ -49,6 +55,12 @@ const App = () => {
           <Route path="/edit-forests" element={<EditForests />} />
           <Route path="/edit-list" element={<GenericEditList />} />
           <Route path="/edit-page" element={<GenericEditPage />} />
+          <Route path="/browseforests" element={<BrowseForests />} />
+          <Route path="/browseplants" element={<BrowsePlants />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/browse-forest-page" element={<BrowseForestPage />} />
+          <Route path="/browse-plant-list" element={<BrowsePlantList />} />
         </Routes>
 
         

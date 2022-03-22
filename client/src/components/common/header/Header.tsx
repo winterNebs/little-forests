@@ -22,16 +22,15 @@ const Header = () => {
   return (
     <section className="header">
       <section className="header-top">
-        <section className="header-top-logo">
+        <section className="header-top-logo" style = {{ marginTop:15, marginLeft:15 }}>
           
           <Link to="/">
             LOGO
           </Link>
           
-          
         </section>
         <section className="header-top-button">
-          <Button variant="contained" onClick={handleOpen}>
+          <Button variant="contained" color="primary" style = {{ marginRight:20, color: "white" }}onClick={handleOpen}>
             Log In
           </Button>
           <Modal
