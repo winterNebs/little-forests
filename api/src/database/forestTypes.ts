@@ -1,8 +1,8 @@
 import { ForestTypes, ForestType } from "./schema/forestType";
 import { SiteConditionRule } from "./schema/siteConditionRule";
 
-export function createForestType() {
-	return ForestTypes.create(ForestType);
+export function createForestType(forestType: ForestType) {
+	return ForestTypes.create(forestType);
 }
 
 export function getForestTypeByID(id: string) {

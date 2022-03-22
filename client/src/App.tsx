@@ -23,6 +23,7 @@ import AboutPage from './components/Pages/AboutPage';
 import ContactPage from './components/Pages/ContactPage';
 import BrowseForestPage from './components/Pages/BrowseForestPage';
 import BrowsePlantList from './components/Pages/BrowsePlantList';
+import PageNotFound from './components/Pages/PageNotFound';
 
 
 
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/browse-forest-page" element={<BrowseForestPage />} />
           <Route path="/browse-plant-list" element={<BrowsePlantList />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
 
         

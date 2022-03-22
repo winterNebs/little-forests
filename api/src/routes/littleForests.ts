@@ -1,4 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
+import { getAllPublicLittleForests, getLFByID } from "src/database/littleForest";
 import { LittleForest } from "src/database/schema/littleForests";
 
 const router: Router = Router();
@@ -17,7 +18,12 @@ router.get("/little-forest/:id", (req: Request, res: Response) => {
 router.get(
 	"/api/little-forests/",
 	(req: Request, res: Response, next: NextFunction) => {
-		res.send([]);
+		try{
+			res.send(getAllPublicLittleForests());
+		}
+		catch{
+			res.sendStatus(500);
+		}
 	}
 );
 
@@ -31,8 +37,14 @@ router.post(
 
 router.get(
 	"/api/little-forest/:id",
-	(req: Request, res: Response, next: NextFunction) => {
-		res.send({});
+	async (req: Request, res: Response, next: NextFunction) => {
+		try{
+			res.send(await getLFByID(req.params.id));
+		}
+		catch{
+			res.sendStatus(404);
+		}
+		
 	}
 );
 export default router;

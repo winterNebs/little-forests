@@ -27,8 +27,6 @@ export const treeType: readonly["diciduous", "conifer", "evergreen"] = [
 ];
 
 
-@index({name: 1}, {unique: true})
-
 export class Plant{
     @prop()
     public commonName!: string;
@@ -43,8 +41,8 @@ export class Plant{
     @prop()
     public maxHeight!: string;
 
-    @prop({type: PlantAttribute, required: true, default: []})
-    public advantages!: PlantAttribute[];
+    @prop({type: String, required: true, default: []})
+    public advantages!: string[];
 
     @prop({type: String, required: true, default: []})
     public images!: string[];
