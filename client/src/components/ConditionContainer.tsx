@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box, Grid, Paper, Radio, Stack } from "@mui/material";
-import { ContainerValues } from "./Pages/BuilderPage";
+import { ContainerValues } from "./Pages/SelectPage";
 import placeholderImage from '../placeholder.jpg';
 
 function ConditionContainer(props: ContainerValues) {
@@ -36,9 +36,6 @@ function ConditionContainer(props: ContainerValues) {
 				>
 					<Grid item xs={12}>
 						<h3>{props.title}</h3>
-					</Grid>
-					<Grid item xs={12}>
-						<h4>{props.description}</h4>
 					</Grid>
 
 					{props.siteConditions.map((condition) => (

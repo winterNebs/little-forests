@@ -6,7 +6,7 @@ import { green } from '@mui/material/colors'
 import { Header } from './components/common';
 import { Footer } from './components/common';
 import HomePage from './components/Pages/HomePage';
-import BuilderPage from './components/Pages/BuilderPage';
+import SelectPage from './components/Pages/SelectPage';
 import AccountDashboard from './components/Pages/AccountDashboard';
 import AdminDashboard from './components/Pages/AdminDashboard';
 import ForestResultsPage from './components/Pages/ForestResultsPage';
@@ -38,7 +38,7 @@ const App = () => {
 
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/select' element={<BuilderPage />} />
+          <Route path='/select' element={<SelectPage />} />
           <Route path='/plan' element={<PlanPage />} />
           <Route path="/dashboard" element={<AccountDashboard />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
