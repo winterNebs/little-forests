@@ -1,15 +1,11 @@
 import React from 'react';
 import { Grid, Stack, IconButton, TextField } from '@mui/material';
-import { KeyboardArrowUp, KeyboardArrowDown } from '@mui/icons-material';
+import { KeyboardArrowUp, KeyboardArrowDown, AddCircle } from '@mui/icons-material';
 import placeholderImage from '../placeholder.jpg';
+import { PlantItemValues } from './SelectorBox';
 
-interface props {
-    commonPlantName: string
-    sciPlantName: string
-    plantUse: string
-}
 
-export default function PlantItem(props: props) {
+export default function PlantItem(props: PlantItemValues) {
 
     // Create our hooks for
     const [count, setCount] = React.useState(0);
@@ -17,7 +13,6 @@ export default function PlantItem(props: props) {
     // Functions to handle increment and decrement
     const handleIncrement = () => { setCount(count + 1) };
     const handleDecrement = () => { setCount(count - 1) };
-
 
     return (
         <>
@@ -49,8 +44,13 @@ export default function PlantItem(props: props) {
                         }
                         
                         </Stack>
-                    ) : (
-                            <h1>temp</h1>
+                    ) : props.plantUse === "addition" ? (
+                            <IconButton>
+                                <AddCircle />
+                            </IconButton>
+                        ) : (
+                                
+                                <></>
                         )
                     }
 

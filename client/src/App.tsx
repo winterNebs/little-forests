@@ -6,7 +6,7 @@ import { green } from '@mui/material/colors'
 import { Header } from './components/common';
 import { Footer } from './components/common';
 import HomePage from './components/Pages/HomePage';
-import BuilderPage from './components/Pages/BuilderPage';
+import SelectPage from './components/Pages/SelectPage';
 import AccountDashboard from './components/Pages/AccountDashboard';
 import AdminDashboard from './components/Pages/AdminDashboard';
 import ForestResultsPage from './components/Pages/ForestResultsPage';
@@ -17,6 +17,13 @@ import EditPlants from './components/EditPlants';
 import EditForests from './components/EditForests';
 import GenericEditList from './components/GenericEditList';
 import GenericEditPage from './components/GenericEditPage';
+import BrowseForests from './components/Pages/BrowseForests';
+import BrowsePlants from './components/Pages/BrowsePlants';
+import AboutPage from './components/Pages/AboutPage';
+import ContactPage from './components/Pages/ContactPage';
+import BrowseForestPage from './components/Pages/BrowseForestPage';
+import BrowsePlantList from './components/Pages/BrowsePlantList';
+import PageNotFound from './components/Pages/PageNotFound';
 
 
 
@@ -38,8 +45,8 @@ const App = () => {
 
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/select' element={<BuilderPage />} />
-          <Route path='/plan' element={<PlanPage />} />
+          <Route path='/select' element={<SelectPage />} />
+          <Route path='/plan/:typeid' element={<PlanPage />} />
           <Route path="/dashboard" element={<AccountDashboard />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
           <Route path="/results-list" element={<ForestResultsList />} />
@@ -49,6 +56,13 @@ const App = () => {
           <Route path="/edit-forests" element={<EditForests />} />
           <Route path="/edit-list" element={<GenericEditList />} />
           <Route path="/edit-page" element={<GenericEditPage />} />
+          <Route path="/browseforests" element={<BrowseForests />} />
+          <Route path="/browseplants" element={<BrowsePlants />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/browse-forest-page" element={<BrowseForestPage />} />
+          <Route path="/browse-plant-list" element={<BrowsePlantList />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
 
         

@@ -8,8 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
-import ProgressStepper from '../ProgressStepper';
-import AccountHeader from '../common/AccountHeader';
+import { Header } from '../common';
 import ImagePlaceholder from './images/image-placeholder.png';
 import './ForestResultsPage.css';
 import { Link } from 'react-router-dom';
@@ -26,23 +25,28 @@ const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
 
-export default function ForestResultsList() {
+export default function BrowseForestPage() {
   const [dense, setDense] = React.useState(false);
   const [secondary, setSecondary] = React.useState(false);
   
   return (
     <div>
-      <AccountHeader />    
-      <br /><br /><br /><br /><br />
-      <h2>Forest Type</h2>
-      <ProgressStepper />
-      <br />
+      <Header />    
+      <Container className="Title"
+        sx={{ 
+            display:"flex", flexDirection:"column", justifyContent:"center", marginTop:15 
+        }}
+      >
+        <Button component={Link} to='/browseforests' sx={{ width: '5px', borderRadius:5, marginTop:2 }} variant="contained">Back</Button>
+        <Typography variant="h5" sx={{ marginBottom:2 }}>Little Forest Name</Typography>
+      </Container>
+
       <Container sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
         <div className="top-half">
           <img src={ImagePlaceholder} alt="Image placeholder" style={{ padding: 40, width: 500, height: 350 }} />
           <div className="text">
             <br /><br />
-            <h3>Forest Type Name</h3>
+            <h3>Forest Type</h3>
             <p>This is a description of the forest type, the distinguishing characteristics and various properties of this forest type...
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -66,7 +70,7 @@ export default function ForestResultsList() {
                 )}
               </List>
             </Demo>
-            <Button component={Link} to='/plant-list' sx={{ marginBottom:2 }} variant="contained" >Select</Button>
+            <Button component={Link} to='/browse-plant-list' sx={{ marginTop:5, borderRadius:5 }} variant="contained">View Plant List</Button>
           </Container>
 
           

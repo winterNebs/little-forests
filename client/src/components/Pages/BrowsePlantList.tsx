@@ -1,19 +1,28 @@
 import React from 'react'
 import ProgressStepper from '../ProgressStepper';
-import AccountHeader from '../common/AccountHeader';
+import { Header, Footer } from '../common';
 import { Grid, Container, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-function PlantListPage() {
+function BrowsePlantList() {
   return (
     <div>
-      <AccountHeader />
+      <Header />
       <Grid
         container
-        style = {{ marginTop: '10vh', marginBottom: '20vh' }}
+        style = {{ marginTop: '15vh', marginBottom: '20vh' }}
         justifyContent ="center"
         alignItems = "stretch"
         direction = "row"
       >
+        <Container className="back-button"
+            sx={{ 
+                display:"flex", flexDirection:"column", justifyContent:"center"
+            }}
+        >
+        <Button component={Link} to='/browse-forest-page' sx={{ justifySelf:"flexStart", width: '5px', borderRadius:5 }} variant="contained">Back</Button>
+        </Container>
+
         <Grid item xs={12}>
           <h2>Plant List</h2>
         </Grid>
@@ -22,7 +31,6 @@ function PlantListPage() {
           <Grid item xs={3} />
 
           <Grid item xs={8}>
-            <br /><br />
             <Container maxWidth="lg" sx={{ backgroundColor: "#E1E1E1", width: 700, height: 800, borderRadius: 5 }}>
               
             </Container>
@@ -37,10 +45,9 @@ function PlantListPage() {
         </Grid>
       </Grid>
       
-
+      <Footer />
     </div>
   )
 }
 
-export default PlantListPage;
-
+export default BrowsePlantList;
