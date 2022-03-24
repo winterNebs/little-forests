@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { getAllPlants, getPlantById } from "src/database/plant";
-import { Plant } from "src/database/schema/plants";
+import { getAllPlants, getPlantById } from "../database/plant";
+import { Plant } from "../database/schema/plants";
 
 const router: Router = Router();
 //mockup
@@ -46,8 +46,7 @@ router.get(
 	async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			res.send(await getAllPlants());
-		}
-		catch (err: any) {
+		} catch (err: any) {
 			res.sendStatus(500);
 		}
 	}
@@ -61,10 +60,9 @@ router.post("/api/plant", (req: Request, res: Response, next: NextFunction) => {
 router.get(
 	"/api/plant/:id",
 	async (req: Request, res: Response, next: NextFunction) => {
-		try{
+		try {
 			res.send(await getPlantById(req.params.id));
-		}
-		catch{
+		} catch {
 			res.sendStatus(404);
 		}
 	}
