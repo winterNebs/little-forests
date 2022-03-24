@@ -46,7 +46,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/select' element={<SelectPage />} />
-          <Route path='/plan' element={<PlanPage />} />
+          <Route path='/plan/:typeid' element={<PlanPage />} />
           <Route path="/dashboard" element={<AccountDashboard />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
           <Route path="/results-list" element={<ForestResultsList />} />

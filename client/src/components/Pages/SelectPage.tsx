@@ -7,6 +7,7 @@ import AccountHeader from "../common/AccountHeader";
 import { useState, useEffect } from "react";
 import ForestTypeContainer from '../ForestTypeContainer';
 import { FenceTwoTone } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 // Interface for the values that will be within each container - for passing into our map
 export interface ContainerValues {
@@ -14,6 +15,7 @@ export interface ContainerValues {
 	siteConditions: SiteConditionValues[];
 	setSelectedValue?: Function;
 	selectedValues?: any;
+	radioFunction: Function;
 }
 
 // Interface for site conditions
@@ -36,6 +38,9 @@ export default function SelectPage() {
 
 	// Use State to track the selected radio buttons
 	const [selectedConditionValues, setSelectedValue] = useState<string[]>([]);
+
+	// Use State to track the current forest types
+	const [forestTypes, setForestTypes]: [any, Function] = useState([]);
 
 	// Use State to track the selection of radio buttons 
 	const handleRadioSelect = (key: string, value: string) => {
@@ -61,9 +66,9 @@ export default function SelectPage() {
 		fetch(process.env.REACT_APP_API + "/api/forests")
 		.then((res) => res.json())
 			.then((data) => {
-				currForestResults = data;
+				setForestTypes(data);
 				console.log(data);
-				console.log(conditions);
+				console.log(forestTypes);
 			})
 			.catch(console.log);
 	}
@@ -84,13 +89,7 @@ export default function SelectPage() {
 
 	const [selectedForestType, setSelectedForestType] = useState('default');
 
-	// Function that will update the selected button
-	const handleForestSelect = (forestSelected: string) => {
-		setSelectedForestType(forestSelected);
-
-		// Redirect to the planning page with this data selected
-		
-	}
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -123,6 +122,7 @@ export default function SelectPage() {
 							siteConditions={displayContainer.siteConditions}
 							setSelectedValue={setSelectedValue}
 							selectedValues={selectedConditionValues}
+							radioFunction={handleRadioSelect}
 							/>
 						))}
 					</Stack>
@@ -139,17 +139,17 @@ export default function SelectPage() {
 							position: "fixed"
 						}}
 					>
-					{ currForestResults.length === 0 ? (
+					{ forestTypes.length === 0 ? (
 							<>  
 								<h3>No inputs selected, results will be displayed here as you select site conditions!</h3>
 							</>
 						) : (
 								<>
-									{conditions.map((forestType: { name: string; }) =>(
+									{forestTypes.map((forestType: { name: string; }) =>(
 										<ForestTypeContainer 
 										key={forestType.name}
 										name={forestType.name} 
-										setForestValue={handleForestSelect}
+										setForestValue={navigate}
 										/>
 									))}
 								</>

@@ -32,13 +32,13 @@ const ForestTypeContainer = (props: ForestContainerValues) => {
                 spacing={2}
                 justifyContent="center"
                 alignItems="center"
-                >s
+                >
                     <Grid item>
                         <Button component={Link} to='/results-page' variant="contained">More Info</Button>
                     </Grid>
                     <Grid item>
                         { props.setForestValue ? (
-                            <Button variant="contained" onClick={props.setForestValue()} value={name}>Select</Button>
+                            <Button variant="contained" onClick={props.setForestValue('/plan/' + name)}>Select</Button>
                         ) : (
                             <Button variant="contained" disabled>Select</Button>
                             )

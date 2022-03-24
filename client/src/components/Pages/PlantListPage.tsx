@@ -17,10 +17,6 @@ function PlantListPage() {
         <Grid item xs={12}>
           <h2>Plant List</h2>
         </Grid>
-
-        <Grid item xs={12}>
-          <ProgressStepper />
-        </Grid>
         
         <Grid>
           <Grid item xs={3} />
