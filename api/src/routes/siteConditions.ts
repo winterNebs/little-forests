@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { SiteConditionRule } from "src/database/schema/siteConditionRule";
+import { SiteConditionRule } from "../database/schema/siteConditionRule";
 
 const router: Router = Router();
 //mockup
