@@ -43,6 +43,7 @@ router.post(
 );
 
 router.get("/api/users/loggedin", (req: Request, res: Response) => {
+	logger.info([req.user, req.isAuthenticated()]);
 	if (req.isAuthenticated()) {
 		res.sendStatus(200);
 	} else {
@@ -113,6 +114,7 @@ router.post(
 					req.session.cookie.expires = undefined;
 				}
 			}
+			logger.info([req.isAuthenticated(), req.user]);
 			res.sendStatus(200);
 		} else {
 			res.status(400).send("Invalid Email/Password");

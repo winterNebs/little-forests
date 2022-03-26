@@ -28,14 +28,6 @@ const f3: ForestType = {
 	active: true,
 };
 
-router.get("/forests/", (req: Request, res: Response) => {
-	// if not null, then:
-	res.send({ f1, f2, f3 });
-});
-router.get("/forests/:id", (req: Request, res: Response) => {
-	res.send(f1);
-});
-
 router.get(
 	"/api/forests/",
 	async (req: Request, res: Response, next: NextFunction) => {

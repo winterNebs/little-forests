@@ -41,26 +41,39 @@ app.use(express.static(path.join(__dirname, "build")));
 // Show routes called in console during development
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"));
-	app.use(cors());
+	//app.use(cors);
+	app.use(
+		session({
+			name: "LittleForests",
+			secret: process.env.SECRET || "DEV SECRET DON't USE",
+			resave: true,
+			saveUninitialized: true,
+			cookie: {
+				secure: true,
+				sameSite: "strict",
+			},
+			store: MongoStore.create({ mongoUrl: mongoDB }),
+		})
+	);
 }
 
 // Security
 if (process.env.NODE_ENV === "production") {
 	app.use(helmet());
+	app.use(
+		session({
+			name: "LittleForests",
+			secret: process.env.SECRET || "DEV SECRET DON't USE",
+			resave: true,
+			saveUninitialized: true,
+			cookie: {
+				secure: true,
+				sameSite: "strict",
+			},
+			store: MongoStore.create({ mongoUrl: mongoDB }),
+		})
+	);
 }
-app.use(
-	session({
-		name: "LittleForests",
-		secret: process.env.SECRET || "DEV SECRET DON't USE",
-		resave: true,
-		saveUninitialized: true,
-		cookie: {
-			secure: "auto",
-			sameSite: "strict",
-		},
-		store: MongoStore.create({ mongoUrl: mongoDB }),
-	})
-);
 app.use(passport.initialize());
 app.use(passport.session());
 

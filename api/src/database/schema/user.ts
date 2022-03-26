@@ -8,8 +8,6 @@ import {
 	mongoose,
 } from "@typegoose/typegoose";
 import { hash, compare } from "bcrypt";
-import { Types } from "mongoose";
-import { LittleForest } from "./littleForests";
 export const user_roles: readonly ["admin", "editor", "user"] = [
 	"admin",
 	"editor",
@@ -66,11 +64,18 @@ export class UserClass {
 	): Promise<DocumentType<UserClass>> {
 		// search for a user by email and password.
 		try {
-			const user: DocumentType<UserClass> | null = await User.findOne({
+			let user: DocumentType<UserClass> | null = await User.findOne({
 				email: email,
 			})
 				.collation({ locale: "en", strength: 1 })
 				.exec();
+			if (!user) {
+				user = await User.findOne({
+					name: email,
+				})
+					.collation({ locale: "en", strength: 1 })
+					.exec();
+			}
 			if (!user) {
 				throw new Error("Invalid login credentials");
 			}
