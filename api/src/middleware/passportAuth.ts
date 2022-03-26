@@ -32,14 +32,21 @@ passport.use(
 			password: string,
 			done: any
 		) {
-			let user = await getByCredentials(username, password);
-			if (user) {
-				logger.info(["logged in", username]);
-				user.last_seen = new Date();
-				user.save();
-				return done(null, user);
-			} else {
-				logger.info(["Login failed", username, req.ip]);
+			try {
+				let user = await getByCredentials(username, password);
+				if (user) {
+					logger.info(["logged in", username]);
+					user.last_seen = new Date();
+					user.save();
+					return done(null, user);
+				} else {
+					logger.info(["Login failed", username, req.ip]);
+					return done(null, false, {
+						message: "Invalid Credentials",
+					});
+				}
+			} catch (err) {
+				logger.info(["Login failed", username, req.ip, err]);
 				return done(null, false, { message: "Invalid Credentials" });
 			}
 		}
