@@ -1,17 +1,15 @@
-import * as React from "react";
-import { Box, Grid, Paper, Radio, Stack } from "@mui/material";
+import { Grid, Paper, Radio, Stack } from "@mui/material";
 import { ContainerValues } from "./Pages/SelectPage";
-import placeholderImage from '../placeholder.jpg';
+import { useState, ChangeEvent } from "react";
+import placeholderImage from "../placeholder.jpg";
 
 function ConditionContainer(props: ContainerValues) {
+	const [containerValue, setContainerValue] = useState("default");
 
-	const [containerValue, setContainerValue] = React.useState("default");
-
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		// We want to append our container value to the state in the parent
 		setContainerValue(event.target.value);
-
-	}
+	};
 
 	return (
 		<>
@@ -27,19 +25,24 @@ function ConditionContainer(props: ContainerValues) {
 					</Grid>
 
 					{props.siteConditions.map((condition) => (
-						<Grid key={condition.subtitle} item xs={3} >
+						<Grid key={condition.subtitle} item xs={3}>
 							<Stack spacing={-0.5}>
 								{typeof condition.imageURL !== "undefined" ? (
 									<>
-										<img className="condition-thumbnail" src={condition.imageURL} />
+										<img
+											className="condition-thumbnail"
+											src={condition.imageURL}
+										/>
 										<h4>{condition.subtitle}</h4>
 									</>
 								) : (
 									<>
-										<img className="condition-thumbnail" src={placeholderImage} />
+										<img
+											className="condition-thumbnail"
+											src={placeholderImage}
+										/>
 										<h4>{condition.subtitle}</h4>
 									</>
-									
 								)}
 								<Radio
 									checked={
@@ -58,6 +61,6 @@ function ConditionContainer(props: ContainerValues) {
 			</Paper>
 		</>
 	);
-};
+}
 
 export { ConditionContainer as default };
