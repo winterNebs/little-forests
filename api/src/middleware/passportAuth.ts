@@ -10,12 +10,17 @@ passport.serializeUser(function (user: any, done: any): void {
 	done(null, user.id);
 });
 // TODO: double check async awaits here
-passport.deserializeUser(function (id: string, done: any): void {
-	User.findById(id, (err: any, user: DocumentType<UserClass>): void => {
-		user.last_seen = new Date();
-		user.save();
-		done(err, user);
-	});
+passport.deserializeUser(async (id: string, done: any) => {
+	try {
+		let user = await User.findById(id);
+		if (user) {
+			user.last_seen = new Date();
+			user.save();
+		}
+		done(null, user);
+	} catch (err) {
+		done(err, null);
+	}
 });
 
 passport.use(

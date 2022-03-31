@@ -60,6 +60,7 @@ router.post(
 		try {
 			if (req.body.name && req.body.email && req.body.password) {
 				await createUser(req.body);
+				logger.info("User registered");
 				res.sendStatus(201);
 			} else {
 				res.sendStatus(400);
