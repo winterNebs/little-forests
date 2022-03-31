@@ -3,5 +3,8 @@
 		"build": "(cd client && npm i && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ && echo 'building server' && cd ../api && NODE_ENV=build && npm ci && npm run build && NODE_ENV=production)",
 		"start": "(cd api && npm run start)",
 		"build:front": "(cd client && npm i && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ )"
+	},
+	"engines": {
+		"node": "16.x"
 	}
 }
