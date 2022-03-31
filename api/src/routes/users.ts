@@ -43,7 +43,7 @@ router.post(
 );
 
 router.get("/api/users/loggedin", (req: Request, res: Response) => {
-	logger.info([req.user, req.isAuthenticated()]);
+	logger.info([req.isAuthenticated()]);
 	if (req.isAuthenticated()) {
 		res.sendStatus(200);
 	} else {
@@ -94,7 +94,7 @@ router.post(
 				}
 				res.status(422).send(errmsg);
 			} else {
-				logger.warn(err);
+				logger.info(err);
 				res.status(500).send(err);
 			}
 		}
@@ -114,7 +114,7 @@ router.post(
 					req.session.cookie.expires = undefined;
 				}
 			}
-			logger.info([req.isAuthenticated(), req.user]);
+			logger.info([req.isAuthenticated()]);
 			res.sendStatus(200);
 		} else {
 			res.status(400).send("Invalid Email/Password");
