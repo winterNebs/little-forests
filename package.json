@@ -5,6 +5,6 @@
 		"build:front": "(cd client && npm i && CI=false && npm run build && rm -rf ../api/src/build && mv ./build ../api/src/ )"
 	},
 	"engines": {
-		"node": "16.x"
+		"node": "16.13.1"
 	}
 }
